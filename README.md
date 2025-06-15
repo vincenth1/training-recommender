@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ### 4. Run Recommender Example
 ```bash
-python run_recommender.py
+python course_ranker.py
 ```
 
 This script will load user profile, fetch courses from the DB, score each course, and output the top recommendations.
