@@ -8,10 +8,12 @@ A lightweight recommendation system that matches users with suitable training co
 
 ```
 training-recommender/
-├── insert_courses.sql         # SQL file with 100 training course entries
-├── db_connection.py           # Script to connect and fetch courses from PostgreSQL
-├── scoring_system.py          # Main scoring logic to compute recommendation scores
-├── run_recommender.py         # Example script to run recommendation based on user input
+├── db
+  ├── insert_courses.sql         # SQL file with 100 training course entries
+  ├── db_reader.py           # Script to connect and fetch courses from PostgreSQL
+├── scoring
+  ├── rule_score_function.py          # Main scoring logic to compute recommendation scores
+├── course_ranker.py         # Example script to run recommendation based on user input
 ├── requirements.txt           # Python dependencies
 └── README.md                  # Project description and usage
 ```
