@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Training Recommender{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color system */
+            --primary-color: #0066FF;
+            --primary-dark: #0052CC;
+            --primary-light: #E5F0FF;
+            --secondary-color: #1E293B;
+            --accent-color: #00C2FF;
+            --success-color: #10B981;
+            --warning-color: #F59E0B;
+            --danger-color: #EF4444;
+            --background-color: #F8FAFC;
+            --surface-color: #FFFFFF;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-tertiary: #94A3B8;
+
+            /* Elevation */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+            /* Border radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--surface-color);
+            box-shadow: var(--shadow-sm);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-secondary) !important;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: var(--primary-light);
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            background: var(--surface-color);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            background: transparent;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: var(--spacing-lg);
+        }
+
+        .card-body {
+            padding: var(--spacing-lg);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.625rem 1.25rem;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Badges */
+        .badge {
+            font-weight: 500;
+            padding: 0.35em 0.75em;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Process Flow */
+        .process-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-xl);
+            flex-wrap: wrap;
+            background: var(--surface-color);
+        }
+
+        .process-container-detailed {
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--primary-light);
+        }
+
+        .process-container-detailed::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .process-container-detailed::-webkit-scrollbar-track {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        .process-container-detailed::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .process-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .process-step {
+            flex: 1 1 200px;
+            max-width: 240px;
+            text-wrap: balance;
+        }
+
+        .process-step-detailed {
+            flex: 0 0 200px;
+            width: 200px;
+            text-wrap: balance;
+        }
+
+        .process-step .card,
+        .process-step-detailed .card {
+            padding: var(--spacing-md);
+            text-align: center;
+            background: var(--surface-color);
+        }
+
+        .process-step i,
+        .process-step-detailed i {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        .process-arrow,
+        .process-arrow-detailed {
+            color: var(--text-tertiary);
+            font-size: 1.25rem;
+            align-self: center;
+        }
+
+        /* List groups */
+        .list-group-item {
+            border-radius: var(--radius-md) !important;
+            margin-bottom: var(--spacing-xs);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: var(--spacing-lg);
+        }
+
+        /* Stats cards */
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-light), var(--surface-color));
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            height: 100%;
+        }
+
+        .stat-card i {
+            color: var(--primary-color);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb {
+            margin: var(--spacing-md) 0;
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface-color);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+
+            .process-container {
+                padding: var(--spacing-md);
+            }
+
+            .card-body {
+                padding: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .process-step {
+                flex: 0 1 120px;
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .process-step {
+                flex: 1 1 100%;
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-tertiary);
+            border-radius: var(--radius-sm);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <i class="fas fa-graduation-cap me-2"></i>
+                Training Recommender
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recommendations">
+                            <i class="fas fa-star me-2"></i>Recommendations
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4 animate-fade-in">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-secondary">
+                        <i class="fas fa-code me-2"></i>
+                        Training Recommender Platform &copy; 2024
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-secondary">
+                        <i class="fas fa-heart text-danger me-1"></i>
+                        Empowering careers through smart recommendations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

@@ -5,8 +5,8 @@ def fetch_courses():
     try:
         conn = psycopg2.connect(
             database="courses_db3",
-            user="fengyang",
-            password="",
+            user="vincent",
+            password="1",
             host="localhost",
             port="5432"
         )

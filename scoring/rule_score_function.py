@@ -1,3 +1,4 @@
+# Extension: Real-time Labor Market & Training Provider Integration
 
 LANG_LEVEL_MAP = {"A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
 EDU_LEVEL_MAP = {"none": 0, "highschool": 1, "Bachelor": 2, "Master": 3, "University Diploma": 2.5}
@@ -13,7 +14,9 @@ SCORING_FIELDS = [
     "location_priority_match",
     "disability_friendly_match",
     "has_computer_skills",
-    "has_driving_license"
+    "has_driving_license",
+    "skills_match",
+    "regional_demand_bonus"
 ]
 
 FIELD_WEIGHTS = {
@@ -27,7 +30,20 @@ FIELD_WEIGHTS = {
     "location_priority_match": 5,
     "disability_friendly_match": 5,
     "has_computer_skills": 5,
-    "has_driving_license": 5
+    "has_driving_license": 5,
+    "skills_match": 20,
+    "regional_demand_bonus": 10
+}
+
+# Example databases (mock)
+skill_taxonomy = {
+    "pflegehelfer": ["hygiene", "erste hilfe", "deutsch b1"],
+    "lagerlogistik": ["gabelstapler", "arbeitssicherheit", "teamarbeit"]
+}
+
+regional_demand = {
+    "berlin": {"pflegehelfer": 80, "lagerlogistik": 60},
+    "nrw": {"pflegehelfer": 90, "it-support": 50}
 }
 
 def compute_feature_value(user, course, field):
@@ -92,6 +108,17 @@ def compute_feature_value(user, course, field):
     if field == "has_driving_license":
         return 1 if user.get("driving_license") else 0
 
+    if field == "skills_match":
+        job = course.get("job_type")
+        needed_skills = skill_taxonomy.get(job, [])
+        user_skills = [s.lower() for s in user.get("skills", [])]
+        return len(set(user_skills).intersection(needed_skills)) / max(1, len(needed_skills))
+
+    if field == "regional_demand_bonus":
+        location = user.get("location")
+        job = course.get("job_type")
+        return regional_demand.get(location, {}).get(job, 0) / 100
+
     return 0
 
 def compute_final_score(user, course):
@@ -101,3 +128,35 @@ def compute_final_score(user, course):
         weight = FIELD_WEIGHTS.get(field, 0)
         total += value * weight
     return round(min(total, 100), 2)
+
+# --- Example mock user and course ---
+mock_user = {
+    "german_level": "B1",
+    "has_language_certificate": True,
+    "education": "highschool",
+    "work_experience": {"pflegehelfer": 1},
+    "desired_job": "pflegehelfer",
+    "interest": "pflege, soziales",
+    "preferred_learning_mode": "in-person",
+    "has_childcare_needs": False,
+    "location": "berlin",
+    "can_relocate": False,
+    "has_disability": False,
+    "computer_skills": True,
+    "driving_license": True,
+    "skills": ["hygiene", "erste hilfe"]
+}
+
+mock_course = {
+    "min_language_level": "A2",
+    "education_required": ["none"],
+    "required_field": "pflegehelfer",
+    "tags": ["pflege", "pflegehelfer"],
+    "delivery_mode": "in-person",
+    "supports_childcare": False,
+    "locations": ["berlin"],
+    "is_physical_friendly": True,
+    "job_type": "pflegehelfer"
+}
+
+print("Final Score:", compute_final_score(mock_user, mock_course))
