@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from db.db_reader import fetch_courses
 from scoring.rule_score_function import compute_final_score
 from forms import UserIntakeForm
@@ -107,6 +107,64 @@ USER_PROFILE = {
     "computer_skills": True,
     "driving_license": False
 }
+
+# --- Mock Coach Data ---
+COACHES = [
+    {
+        "id": 1,
+        "name": "Anna Müller",
+        "photo": "/static/coaches/anna.jpg",
+        "city": "Berlin",
+        "languages": ["German", "English"],
+        "meeting_types": ["in-person", "online"],
+        "slots": [
+            {"datetime": "2024-07-15 10:00", "type": "in-person", "city": "Berlin"},
+            {"datetime": "2024-07-16 14:00", "type": "online"},
+            {"datetime": "2024-07-17 09:00", "type": "in-person", "city": "Potsdam"},
+        ],
+        "description": "Specializes in career orientation and job application strategies."
+    },
+    {
+        "id": 2,
+        "name": "Omar Al-Farouq",
+        "photo": "/static/coaches/omar.jpg",
+        "city": "Hamburg",
+        "languages": ["German", "Arabic", "English"],
+        "meeting_types": ["in-person", "online"],
+        "slots": [
+            {"datetime": "2024-07-15 11:00", "type": "in-person", "city": "Hamburg"},
+            {"datetime": "2024-07-16 15:00", "type": "online"},
+            {"datetime": "2024-07-18 13:00", "type": "in-person", "city": "Bremen"},
+        ],
+        "description": "Experienced in supporting international professionals and documentation for job centers."
+    },
+    {
+        "id": 3,
+        "name": "Svitlana Ivanenko",
+        "photo": "/static/coaches/svitlana.jpg",
+        "city": "Leipzig",
+        "languages": ["German", "Ukrainian", "Russian"],
+        "meeting_types": ["online"],
+        "slots": [
+            {"datetime": "2024-07-15 16:00", "type": "online"},
+            {"datetime": "2024-07-17 10:00", "type": "online"},
+        ],
+        "description": "Focus on integration, language support, and next steps for newcomers."
+    },
+    {
+        "id": 4,
+        "name": "Jonas Becker",
+        "photo": "/static/coaches/jonas.jpg",
+        "city": "Munich",
+        "languages": ["German", "English"],
+        "meeting_types": ["in-person"],
+        "slots": [
+            {"datetime": "2024-07-16 09:00", "type": "in-person", "city": "Munich"},
+            {"datetime": "2024-07-18 11:00", "type": "in-person", "city": "Augsburg"},
+        ],
+        "description": "Helps with planning, documentation, and job center applications."
+    }
+]
 
 # --- Routes ---
 
@@ -215,6 +273,19 @@ def course_detail(course_id):
         ]
     return render_template('course_detail.html', course=course, providers=providers, jobs=jobs)
 
+@app.route('/book-coach')
+def book_coach():
+    """
+    Show available coaches and allow the user to book a meeting.
+    """
+    user_city = None
+    if 'user_profile' in session:
+        form_data = session['user_profile']
+        pc = form_data.get('postal_city', '')
+        if pc:
+            user_city = pc.split()[-1]
+    return render_template('book_coach.html', coaches=COACHES, user_city=user_city)
+
 @app.route('/user-form', methods=['GET', 'POST'])
 def user_form():
     with open('recommender_app/form_translations.json', encoding='utf-8') as f:
@@ -225,11 +296,25 @@ def user_form():
         user_data = form.data
         print('USER FORM SUBMISSION:', user_data)  # For debugging
         session['user_profile'] = user_data
-        return redirect(url_for('recommendations'))
+        return redirect(url_for('book_coach'))
     else:
         if form.is_submitted():
             print('FORM ERRORS:', form.errors)
     return render_template('user_form.html', form=form, translations=translations)
+
+@app.route('/book-slot', methods=['POST'])
+def book_slot():
+    data = request.json
+    coach_id = data.get('coach_id')
+    slot_datetime = data.get('slot_datetime')
+    # Here you would save the booking to a database or send an email, etc.
+    # For now, just return a success message.
+    return jsonify({
+        "success": True,
+        "message": "Your meeting has been booked!",
+        "coach_id": coach_id,
+        "slot_datetime": slot_datetime
+    })
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
