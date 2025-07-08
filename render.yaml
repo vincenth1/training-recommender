@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: training-recommender
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn recommender_app.app:app --bind 0.0.0.0:5000"
+    envVars:
+      - key: SECRET_KEY
+        value: "change-this-in-render-dashboard"
+    plan: free
+    autoDeploy: true 
