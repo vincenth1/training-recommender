@@ -6,6 +6,7 @@ from db.db_reader import fetch_courses
 from scoring.rule_score_function import compute_final_score
 from .forms import UserIntakeForm
 import json
+from markupsafe import Markup
 
 app = Flask(__name__)
 app.secret_key = 'dev-secret-key'
