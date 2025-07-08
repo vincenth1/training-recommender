@@ -1,0 +1,702 @@
+{
+    "first_name": {
+        "de": "Vorname",
+        "en": "First Name",
+        "uk": "Ім'я"
+    },
+    "last_name": {
+        "de": "Nachname",
+        "en": "Last Name",
+        "uk": "Прізвище"
+    },
+    "date_of_birth": {
+        "de": "Geburtsdatum",
+        "en": "Date of Birth",
+        "uk": "Дата народження"
+    },
+    "gender": {
+        "de": "Geschlecht",
+        "en": "Gender",
+        "uk": "Стать"
+    },
+    "gender_male": {
+        "de": "Männlich",
+        "en": "Male",
+        "uk": "Чоловіча"
+    },
+    "gender_female": {
+        "de": "Weiblich",
+        "en": "Female",
+        "uk": "Жіноча"
+    },
+    "gender_diverse": {
+        "de": "Divers",
+        "en": "Diverse",
+        "uk": "Інше"
+    },
+    "nationality": {
+        "de": "Nationalität",
+        "en": "Nationality",
+        "uk": "Національність"
+    },
+    "nationality_ukrainian": {
+        "de": "Ukrainisch",
+        "en": "Ukrainian",
+        "uk": "Українська"
+    },
+    "nationality_german": {
+        "de": "Deutsch",
+        "en": "German",
+        "uk": "Німецька"
+    },
+    "nationality_polish": {
+        "de": "Polnisch",
+        "en": "Polish",
+        "uk": "Польська"
+    },
+    "nationality_turkish": {
+        "de": "Türkisch",
+        "en": "Turkish",
+        "uk": "Турецька"
+    },
+    "nationality_arabic": {
+        "de": "Arabisch",
+        "en": "Arabic",
+        "uk": "Арабська"
+    },
+    "nationality_afghan": {
+        "de": "Afghanisch",
+        "en": "Afghan",
+        "uk": "Афганська"
+    },
+    "nationality_russian": {
+        "de": "Russisch",
+        "en": "Russian",
+        "uk": "Російська"
+    },
+    "nationality_kurdish": {
+        "de": "Kurdisch",
+        "en": "Kurdish",
+        "uk": "Курдська"
+    },
+    "nationality_somali": {
+        "de": "Somali",
+        "en": "Somali",
+        "uk": "Сомалійська"
+    },
+    "since_in_germany": {
+        "de": "Seit wann sind Sie in Deutschland?",
+        "en": "Since when have you been in Germany?",
+        "uk": "З якого часу Ви в Німеччині?"
+    },
+    "residence_permit": {
+        "de": "Aufenthaltstitel",
+        "en": "Residence Permit",
+        "uk": "Дозвіл на проживання"
+    },
+    "address": {
+        "de": "Adresse",
+        "en": "Address",
+        "uk": "Адреса"
+    },
+    "postal_city": {
+        "de": "PLZ / Ort",
+        "en": "Postal Code / City",
+        "uk": "Поштовий індекс / Місто"
+    },
+    "phone": {
+        "de": "Telefonnummer",
+        "en": "Phone Number",
+        "uk": "Телефон"
+    },
+    "email": {
+        "de": "E-Mail",
+        "en": "Email",
+        "uk": "Електронна пошта"
+    },
+    "children": {
+        "de": "Kinder & Kinderbetreuung",
+        "en": "Children & Childcare",
+        "uk": "Діти та догляд"
+    },
+    "child_age": {
+        "de": "Alter",
+        "en": "Age",
+        "uk": "Вік"
+    },
+    "childcare_needed": {
+        "de": "Kinderbetreuung benötigt?",
+        "en": "Childcare needed?",
+        "uk": "Потрібен догляд?"
+    },
+    "yes": {
+        "de": "Ja",
+        "en": "Yes",
+        "uk": "Так"
+    },
+    "no": {
+        "de": "Nein",
+        "en": "No",
+        "uk": "Ні"
+    },
+    "mother_tongue": {
+        "de": "Muttersprache",
+        "en": "Mother Tongue",
+        "uk": "Рідна мова"
+    },
+    "foreign_languages": {
+        "de": "Fremdsprachen und Niveau",
+        "en": "Foreign Languages & Level",
+        "uk": "Іноземні мови та рівень"
+    },
+    "foreign_language": {
+        "de": "Sprache",
+        "en": "Language",
+        "uk": "Мова"
+    },
+    "language_level": {
+        "de": "Niveau",
+        "en": "Level",
+        "uk": "Рівень"
+    },
+    "language_certificate": {
+        "de": "Zertifikat vorhanden?",
+        "en": "Certificate available?",
+        "uk": "Є сертифікат?"
+    },
+    "school_diplomas": {
+        "de": "Schulabschlüsse",
+        "en": "School Diplomas",
+        "uk": "Шкільні дипломи"
+    },
+    "school_diploma": {
+        "de": "Schulabschluss",
+        "en": "School Diploma",
+        "uk": "Шкільний диплом"
+    },
+    "school_diploma_date": {
+        "de": "Erwerbsdatum",
+        "en": "Acquisition Date",
+        "uk": "Дата отримання"
+    },
+    "school_diploma_country": {
+        "de": "Land des Abschlusses",
+        "en": "Country of Diploma",
+        "uk": "Країна диплому"
+    },
+    "university_degrees": {
+        "de": "Hochschulabschlüsse",
+        "en": "University Degrees",
+        "uk": "Університетські ступені"
+    },
+    "university_degree": {
+        "de": "Abschluss",
+        "en": "Degree",
+        "uk": "Ступінь"
+    },
+    "university_field": {
+        "de": "Studiengebiet",
+        "en": "Field of Study",
+        "uk": "Галузь навчання"
+    },
+    "university_from": {
+        "de": "Zeitraum Von",
+        "en": "Period From",
+        "uk": "Період з"
+    },
+    "university_to": {
+        "de": "Bis",
+        "en": "To",
+        "uk": "До"
+    },
+    "university_country": {
+        "de": "Land des Abschlusses",
+        "en": "Country of Degree",
+        "uk": "Країна диплому"
+    },
+    "work_experience": {
+        "de": "Berufserfahrung",
+        "en": "Work Experience",
+        "uk": "Досвід роботи"
+    },
+    "work_industry": {
+        "de": "Branche",
+        "en": "Industry",
+        "uk": "Галузь"
+    },
+    "work_from": {
+        "de": "Zeitraum Von",
+        "en": "Period From",
+        "uk": "Період з"
+    },
+    "work_to": {
+        "de": "Bis",
+        "en": "To",
+        "uk": "До"
+    },
+    "drivers_licenses": {
+        "de": "Führerschein",
+        "en": "Driver's License",
+        "uk": "Водійське посвідчення"
+    },
+    "license_class": {
+        "de": "Führerscheinklasse",
+        "en": "License Class",
+        "uk": "Категорія"
+    },
+    "license_date": {
+        "de": "Erwerbsdatum",
+        "en": "Acquisition Date",
+        "uk": "Дата отримання"
+    },
+    "desired_profession": {
+        "de": "Gewünschter Beruf",
+        "en": "Desired Profession",
+        "uk": "Бажана професія"
+    },
+    "desired_working_hours": {
+        "de": "Gewünschte Arbeitszeit",
+        "en": "Desired Working Hours",
+        "uk": "Бажаний робочий час"
+    },
+    "willing_to_relocate": {
+        "de": "Bereit umzuziehen für einen passenden Job?",
+        "en": "Willing to relocate for a suitable job?",
+        "uk": "Готові переїхати для відповідної роботи?"
+    },
+    "submit": {
+        "de": "Absenden",
+        "en": "Submit",
+        "uk": "Відправити"
+    },
+    "children_section": {
+        "de": "Kinder & Kinderbetreuung",
+        "en": "Children & Childcare",
+        "uk": "Діти та догляд"
+    },
+    "health_section": {
+        "de": "Gesundheitliche Einschränkungen",
+        "en": "Health Restrictions",
+        "uk": "Обмеження здоров'я"
+    },
+    "language_section": {
+        "de": "Sprachkenntnisse",
+        "en": "Language Skills",
+        "uk": "Мовні навички"
+    },
+    "school_section": {
+        "de": "Schulabschlüsse",
+        "en": "School Diplomas",
+        "uk": "Шкільні дипломи"
+    },
+    "university_section": {
+        "de": "Hochschulabschlüsse",
+        "en": "University Degrees",
+        "uk": "Університетські ступені"
+    },
+    "work_section": {
+        "de": "Berufserfahrung",
+        "en": "Work Experience",
+        "uk": "Досвід роботи"
+    },
+    "drivers_section": {
+        "de": "Führerschein",
+        "en": "Driver's License",
+        "uk": "Водійське посвідчення"
+    },
+    "desired_profession_section": {
+        "de": "Gewünschter Beruf",
+        "en": "Desired Profession",
+        "uk": "Бажана професія"
+    },
+    "working_hours_section": {
+        "de": "Gewünschte Arbeitszeit",
+        "en": "Desired Working Hours",
+        "uk": "Бажаний робочий час"
+    },
+    "relocation_section": {
+        "de": "Bereit umzuziehen für einen passenden Job?",
+        "en": "Willing to relocate for a suitable job?",
+        "uk": "Готові переїхати для відповідної роботи?"
+    },
+    "support_section": {
+        "de": "Förderbedarf & Lernpräferenzen",
+        "en": "Support Needs & Learning Preferences",
+        "uk": "Потреби у підтримці та навчанні"
+    },
+    "learning_section": {
+        "de": "Bevorzugte Lernform",
+        "en": "Preferred Learning Method",
+        "uk": "Бажана форма навчання"
+    },
+    "interest_section": {
+        "de": "Interesse an folgenden Angeboten",
+        "en": "Interest in the following offers",
+        "uk": "Інтерес до наступних пропозицій"
+    },
+    "other_qualifications_section": {
+        "de": "Sonstige Qualifikationen",
+        "en": "Other Qualifications",
+        "uk": "Інші кваліфікації"
+    },
+    "foreign_languages_label": {
+        "de": "Fremdsprachen und Niveau",
+        "en": "Foreign Languages & Level",
+        "uk": "Іноземні мови та рівень"
+    },
+    "foreign_language_label": {
+        "de": "Sprache",
+        "en": "Language",
+        "uk": "Мова"
+    },
+    "language_level_label": {
+        "de": "Niveau",
+        "en": "Level",
+        "uk": "Рівень"
+    },
+    "certificate_label": {
+        "de": "Zertifikat vorhanden?",
+        "en": "Certificate available?",
+        "uk": "Є сертифікат?"
+    },
+    "school_diploma_label": {
+        "de": "Schulabschluss",
+        "en": "School Diploma",
+        "uk": "Шкільний диплом"
+    },
+    "school_diploma_date_label": {
+        "de": "Erwerbsdatum",
+        "en": "Acquisition Date",
+        "uk": "Дата отримання"
+    },
+    "school_diploma_country_label": {
+        "de": "Land des Abschlusses",
+        "en": "Country of Diploma",
+        "uk": "Країна диплому"
+    },
+    "university_degree_label": {
+        "de": "Abschluss",
+        "en": "Degree",
+        "uk": "Ступінь"
+    },
+    "university_field_label": {
+        "de": "Studiengebiet",
+        "en": "Field of Study",
+        "uk": "Галузь навчання"
+    },
+    "university_from_label": {
+        "de": "Zeitraum Von",
+        "en": "Period From",
+        "uk": "Період з"
+    },
+    "university_to_label": {
+        "de": "Bis",
+        "en": "To",
+        "uk": "До"
+    },
+    "university_country_label": {
+        "de": "Land des Abschlusses",
+        "en": "Country of Degree",
+        "uk": "Країна диплому"
+    },
+    "work_industry_label": {
+        "de": "Branche",
+        "en": "Industry",
+        "uk": "Галузь"
+    },
+    "work_from_label": {
+        "de": "Zeitraum Von",
+        "en": "Period From",
+        "uk": "Період з"
+    },
+    "work_to_label": {
+        "de": "Bis",
+        "en": "To",
+        "uk": "До"
+    },
+    "drivers_license_class_label": {
+        "de": "Führerscheinklasse",
+        "en": "License Class",
+        "uk": "Категорія"
+    },
+    "drivers_license_date_label": {
+        "de": "Erwerbsdatum",
+        "en": "Acquisition Date",
+        "uk": "Дата отримання"
+    },
+    "school_diplomas_label": {
+        "de": "Schulabschlüsse",
+        "en": "School Diplomas",
+        "uk": "Шкільні дипломи"
+    },
+    "university_degrees_label": {
+        "de": "Hochschulabschlüsse",
+        "en": "University Degrees",
+        "uk": "Університетські ступені"
+    },
+    "work_experience_label": {
+        "de": "Berufserfahrung",
+        "en": "Work Experience",
+        "uk": "Досвід роботи"
+    },
+    "previous_professions_label": {
+        "de": "Frühere Berufe",
+        "en": "Previous Professions",
+        "uk": "Попередні професії"
+    },
+    "drivers_licenses_label": {
+        "de": "Führerschein",
+        "en": "Driver's License",
+        "uk": "Водійське посвідчення"
+    },
+    "desired_profession_label": {
+        "de": "Gewünschter Beruf",
+        "en": "Desired Profession",
+        "uk": "Бажана професія"
+    },
+    "prof_nurse": {
+        "de": "Pflegekraft",
+        "en": "Nurse",
+        "uk": "Медсестра"
+    },
+    "prof_it": {
+        "de": "IT-Spezialist",
+        "en": "IT Specialist",
+        "uk": "IT-спеціаліст"
+    },
+    "prof_teacher": {
+        "de": "Lehrer",
+        "en": "Teacher",
+        "uk": "Вчитель"
+    },
+    "prof_craftsman": {
+        "de": "Handwerker",
+        "en": "Craftsman",
+        "uk": "Ремісник"
+    },
+    "prof_sales": {
+        "de": "Verkäufer",
+        "en": "Salesperson",
+        "uk": "Продавець"
+    },
+    "prof_engineer": {
+        "de": "Ingenieur",
+        "en": "Engineer",
+        "uk": "Інженер"
+    },
+    "prof_chef": {
+        "de": "Koch",
+        "en": "Chef",
+        "uk": "Кухар"
+    },
+    "prof_other": {
+        "de": "Andere",
+        "en": "Other",
+        "uk": "Інше"
+    },
+    "prof_none": {
+        "de": "Keine Präferenz",
+        "en": "No Preference",
+        "uk": "Без переваг"
+    },
+    "desired_working_hours_label": {
+        "de": "Gewünschte Arbeitszeit",
+        "en": "Desired Working Hours",
+        "uk": "Бажаний робочий час"
+    },
+    "work_full": {
+        "de": "Vollzeit",
+        "en": "Full-time",
+        "uk": "Повний робочий день"
+    },
+    "work_part": {
+        "de": "Teilzeit",
+        "en": "Part-time",
+        "uk": "Неповний робочий день"
+    },
+    "relocation_label": {
+        "de": "Bereit umzuziehen für einen passenden Job?",
+        "en": "Willing to relocate for a suitable job?",
+        "uk": "Готові переїхати для відповідної роботи?"
+    },
+    "support_section_label": {
+        "de": "Förderbedarf & Lernpräferenzen",
+        "en": "Support Needs & Learning Preferences",
+        "uk": "Потреби у підтримці та навчанні"
+    },
+    "support_measures_label": {
+        "de": "Fördermaßnahmen in Deutschland erhalten?",
+        "en": "Have you received support measures in Germany?",
+        "uk": "Чи отримували Ви підтримку в Німеччині?"
+    },
+    "matrix_measure": {
+        "de": "Maßnahme",
+        "en": "Measure",
+        "uk": "Захід"
+    },
+    "matrix_yes": {
+        "de": "Ja",
+        "en": "Yes",
+        "uk": "Так"
+    },
+    "matrix_no": {
+        "de": "Nein",
+        "en": "No",
+        "uk": "Ні"
+    },
+    "support_language": {
+        "de": "Sprachförderung",
+        "en": "Language Support",
+        "uk": "Мовна підтримка"
+    },
+    "support_recognition": {
+        "de": "Anerkennung ausländischer Qualifikationen",
+        "en": "Recognition of Foreign Qualifications",
+        "uk": "Визнання іноземних кваліфікацій"
+    },
+    "support_career": {
+        "de": "Berufsorientierung & Bildung",
+        "en": "Career Orientation & Education",
+        "uk": "Профорієнтація та освіта"
+    },
+    "support_integration": {
+        "de": "Arbeitsmarktintegration",
+        "en": "Labor Market Integration",
+        "uk": "Інтеграція на ринок праці"
+    },
+    "support_basic": {
+        "de": "Existenzsicherung & Unterstützung",
+        "en": "Basic Security & Support",
+        "uk": "Забезпечення існування та підтримка"
+    },
+    "support_other": {
+        "de": "Sonstige Unterstützung",
+        "en": "Other Support",
+        "uk": "Інша підтримка"
+    },
+    "learning_label": {
+        "de": "Bevorzugte Lernform",
+        "en": "Preferred Learning Method",
+        "uk": "Бажана форма навчання"
+    },
+    "learn_online": {
+        "de": "Online",
+        "en": "Online",
+        "uk": "Онлайн"
+    },
+    "learn_inperson": {
+        "de": "Präsenz",
+        "en": "In-person",
+        "uk": "Очно"
+    },
+    "learn_hybrid": {
+        "de": "Hybrid",
+        "en": "Hybrid",
+        "uk": "Гібридна"
+    },
+    "interest_label": {
+        "de": "Interesse an folgenden Angeboten",
+        "en": "Interest in the following offers",
+        "uk": "Інтерес до наступних пропозицій"
+    },
+    "interest_language": {
+        "de": "Sprachkurs",
+        "en": "Language Course",
+        "uk": "Мовний курс"
+    },
+    "interest_training": {
+        "de": "Ausbildung",
+        "en": "Training",
+        "uk": "Навчання"
+    },
+    "interest_coaching": {
+        "de": "Coaching",
+        "en": "Coaching",
+        "uk": "Коучинг"
+    },
+    "interest_job": {
+        "de": "Arbeitsvermittlung",
+        "en": "Job Placement",
+        "uk": "Працевлаштування"
+    },
+    "interest_childcare": {
+        "de": "Kinderbetreuung",
+        "en": "Childcare",
+        "uk": "Догляд за дітьми"
+    },
+    "other_qualifications_label": {
+        "de": "Sonstige Qualifikationen",
+        "en": "Other Qualifications",
+        "uk": "Інші кваліфікації"
+    },
+    "qual_first_aid": {
+        "de": "Erste-Hilfe-Kurs & Gesundheitszertifikate",
+        "en": "First Aid Course & Health Certificates",
+        "uk": "Курс першої допомоги та медичні сертифікати"
+    },
+    "qual_it_basics": {
+        "de": "Grundlagen in IT und digitalen Medien",
+        "en": "Basics in IT and Digital Media",
+        "uk": "Основи ІТ та цифрових медіа"
+    },
+    "qual_hygiene": {
+        "de": "Gastro- oder Hygieneschulungen",
+        "en": "Gastro or Hygiene Training",
+        "uk": "Гігієнічні або гастро-курси"
+    },
+    "qual_volunteering": {
+        "de": "Ehrenamt",
+        "en": "Volunteering",
+        "uk": "Волонтерство"
+    },
+    "date_placeholder": {
+        "de": "TT.MM.JJJJ",
+        "en": "MM/DD/YYYY",
+        "uk": "ДД.ММ.РРРР"
+    },
+    "matrix_header_restriction": {
+        "de": "Einschränkung",
+        "en": "Restriction",
+        "uk": "Обмеження"
+    },
+    "matrix_header_present": {
+        "de": "Vorhanden?",
+        "en": "Present?",
+        "uk": "Є?"
+    },
+    "matrix_header_degree": {
+        "de": "Grad der Behinderung (%)",
+        "en": "Degree of Disability (%)",
+        "uk": "Ступінь інвалідності (%)"
+    },
+    "restriction_severe": {
+        "de": "Schwerbehinderung",
+        "en": "Severe Disability",
+        "uk": "Важка інвалідність"
+    },
+    "restriction_mobility": {
+        "de": "Mobilitätseinschränkung",
+        "en": "Mobility Restriction",
+        "uk": "Обмеження мобільності"
+    },
+    "restriction_visual": {
+        "de": "Sehbehinderung",
+        "en": "Visual Impairment",
+        "uk": "Порушення зору"
+    },
+    "restriction_hearing": {
+        "de": "Hörbehinderung",
+        "en": "Hearing Impairment",
+        "uk": "Порушення слуху"
+    },
+    "restriction_chronic": {
+        "de": "Chronische Erkrankung",
+        "en": "Chronic Illness",
+        "uk": "Хронічне захворювання"
+    },
+    "restriction_other": {
+        "de": "Sonstige Einschränkung",
+        "en": "Other Restriction",
+        "uk": "Інше обмеження"
+    }
+}

@@ -1,0 +1,940 @@
+{% extends 'base.html' %}
+{% block title %}Datenaufnahme-Formular{% endblock %}
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <form method="POST" id="user-intake-form">
+                        {{ form.hidden_tag() }}
+                        <div class="d-flex justify-content-end mb-3">
+                            <label for="lang-switcher" class="form-label me-2 mb-0">🌐</label>
+                            <select id="lang-switcher" class="form-select form-select-sm w-auto">
+                                <option value="de">Deutsch</option>
+                                <option value="en">English</option>
+                                <option value="uk">Українська</option>
+                            </select>
+                        </div>
+                        <h4 class="mb-3">{{ translations['first_name']['de'] }} &amp; {{ translations['last_name']['de']
+                            }} <small class="text-secondary">(Persönliche Angaben)</small></h4>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="first_name">{{ translations['first_name']['de']
+                                    }}</label>
+                                {{ form.first_name(class="form-control", placeholder=translations['first_name']['de'])
+                                }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="last_name">{{ translations['last_name']['de']
+                                    }}</label>
+                                {{ form.last_name(class="form-control", placeholder=translations['last_name']['de']) }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" data-i18n="date_of_birth">{{
+                                    translations['date_of_birth']['de'] }}</label>
+                                {{ form.date_of_birth(class="form-control") }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" data-i18n="gender">{{ translations['gender']['de'] }}</label>
+                                <select name="gender" class="form-select" id="gender">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="male" data-i18n="gender_male">{{ translations['gender_male']['de'] }}
+                                    </option>
+                                    <option value="female" data-i18n="gender_female">{{
+                                        translations['gender_female']['de'] }}</option>
+                                    <option value="diverse" data-i18n="gender_diverse">{{
+                                        translations['gender_diverse']['de'] }}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" data-i18n="nationality">{{ translations['nationality']['de']
+                                    }}</label>
+                                <select name="nationality" class="form-select" id="nationality">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="ukrainian" data-i18n="nationality_ukrainian">{{
+                                        translations['nationality_ukrainian']['de'] }}</option>
+                                    <option value="german" data-i18n="nationality_german">{{
+                                        translations['nationality_german']['de'] }}</option>
+                                    <option value="polish" data-i18n="nationality_polish">{{
+                                        translations['nationality_polish']['de'] }}</option>
+                                    <option value="turkish" data-i18n="nationality_turkish">{{
+                                        translations['nationality_turkish']['de'] }}</option>
+                                    <option value="arabic" data-i18n="nationality_arabic">{{
+                                        translations['nationality_arabic']['de'] }}</option>
+                                    <option value="afghan" data-i18n="nationality_afghan">{{
+                                        translations['nationality_afghan']['de'] }}</option>
+                                    <option value="russian" data-i18n="nationality_russian">{{
+                                        translations['nationality_russian']['de'] }}</option>
+                                    <option value="kurdish" data-i18n="nationality_kurdish">{{
+                                        translations['nationality_kurdish']['de'] }}</option>
+                                    <option value="somali" data-i18n="nationality_somali">{{
+                                        translations['nationality_somali']['de'] }}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="since_in_germany">{{
+                                    translations['since_in_germany']['de'] }}</label>
+                                {{ form.since_in_germany(class="form-control") }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="residence_permit">{{
+                                    translations['residence_permit']['de'] }}</label>
+                                <select name="residence_permit" class="form-select" id="residence_permit">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="aufenthaltserlaubnis">Aufenthaltserlaubnis</option>
+                                    <option value="blaue_karte">Blaue Karte EU</option>
+                                    <option value="niederlassung">Niederlassungserlaubnis</option>
+                                    <option value="daueraufenthalt">Daueraufenthalt-EU</option>
+                                    <option value="visum">Visum</option>
+                                    <option value="studierende">Aufenthaltserlaubnis für Studierende</option>
+                                    <option value="asyl">Asylberechtigung</option>
+                                    <option value="duldung">Duldung</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-label" data-i18n="address">{{ translations['address']['de']
+                                    }}</label>
+                                {{ form.address(class="form-control") }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" data-i18n="postal_city">{{ translations['postal_city']['de']
+                                    }}</label>
+                                {{ form.postal_city(class="form-control") }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="phone">{{ translations['phone']['de'] }}</label>
+                                {{ form.phone(class="form-control") }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="email">{{ translations['email']['de'] }}</label>
+                                {{ form.email(class="form-control") }}
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <!-- Children & Childcare -->
+                        <h5 class="mb-3 mt-4" data-i18n="children_section">{{ translations['children_section']['de'] }}
+                        </h5>
+                        <div id="children-section"></div>
+                        <button type="button" class="btn btn-outline-secondary btn-sm mt-2 mb-3" id="add-child">+ Kind
+                            hinzufügen</button>
+                        <hr class="my-4">
+                        <!-- Health Restrictions (Matrix Table) -->
+                        <h5 class="mb-3 mt-4" data-i18n="health_section">{{ translations['health_section']['de'] }}</h5>
+                        <div class="table-responsive mb-3">
+                            <table class="table table-bordered align-middle bg-white">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th data-i18n="matrix_header_restriction">{{
+                                            translations['matrix_header_restriction']['de'] }}</th>
+                                        <th data-i18n="matrix_header_present">{{
+                                            translations['matrix_header_present']['de'] }}</th>
+                                        <th data-i18n="matrix_header_degree">{{
+                                            translations['matrix_header_degree']['de'] }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n="restriction_severe">{{ translations['restriction_severe']['de']
+                                            }}</td>
+                                        <td><input type="checkbox" name="restriction_severe" class="form-check-input">
+                                        </td>
+                                        <td><input type="number" name="degree_severe" class="form-control" min="0"
+                                                max="100"></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="restriction_mobility">{{
+                                            translations['restriction_mobility']['de'] }}</td>
+                                        <td><input type="checkbox" name="restriction_mobility" class="form-check-input">
+                                        </td>
+                                        <td><input type="number" name="degree_mobility" class="form-control" min="0"
+                                                max="100"></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="restriction_visual">{{ translations['restriction_visual']['de']
+                                            }}</td>
+                                        <td><input type="checkbox" name="restriction_visual" class="form-check-input">
+                                        </td>
+                                        <td><input type="number" name="degree_visual" class="form-control" min="0"
+                                                max="100"></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="restriction_hearing">{{ translations['restriction_hearing']['de']
+                                            }}</td>
+                                        <td><input type="checkbox" name="restriction_hearing" class="form-check-input">
+                                        </td>
+                                        <td><input type="number" name="degree_hearing" class="form-control" min="0"
+                                                max="100"></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="restriction_chronic">{{ translations['restriction_chronic']['de']
+                                            }}</td>
+                                        <td><input type="checkbox" name="restriction_chronic" class="form-check-input">
+                                        </td>
+                                        <td><input type="number" name="degree_chronic" class="form-control" min="0"
+                                                max="100"></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="restriction_other">{{ translations['restriction_other']['de'] }}
+                                        </td>
+                                        <td><input type="checkbox" name="restriction_other" class="form-check-input">
+                                        </td>
+                                        <td><input type="number" name="degree_other" class="form-control" min="0"
+                                                max="100"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Language & Education -->
+                        <hr class="my-4">
+                        <h5 class="mb-3 mt-4" data-i18n="language_section">{{ translations['language_section']['de'] }}
+                        </h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" data-i18n="mother_tongue">Muttersprache</label>
+                                <select name="mother_tongue" class="form-select" id="mother_tongue">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="ukrainian">Ukrainisch</option>
+                                    <option value="german">Deutsch</option>
+                                    <option value="polish">Polnisch</option>
+                                    <option value="turkish">Türkisch</option>
+                                    <option value="arabic">Arabisch</option>
+                                    <option value="afghan">Afghanisch</option>
+                                    <option value="russian">Russisch</option>
+                                    <option value="kurdish">Kurdisch</option>
+                                    <option value="somali">Somali</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-3 mb-2">
+                            <label class="form-label" data-i18n="foreign_languages">{{
+                                translations['foreign_languages']['de'] }}</label>
+                            <div id="foreign-languages-section"></div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
+                                id="add-foreign-language">+ <span data-i18n="foreign_language">{{
+                                    translations['foreign_language']['de'] }}</span></button>
+                        </div>
+                        <div class="mt-3 mb-2">
+                            <label class="form-label" data-i18n="school_diplomas_label">{{
+                                translations['school_diplomas_label']['de'] }}</label>
+                            <div id="school-diplomas-section"></div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
+                                id="add-school-diploma">+ <span data-i18n="school_diploma_label">{{
+                                    translations['school_diploma_label']['de'] }}</span></button>
+                        </div>
+                        <div class="mt-3 mb-2">
+                            <label class="form-label" data-i18n="university_degrees_label">{{
+                                translations['university_degrees_label']['de'] }}</label>
+                            <div id="university-degrees-section"></div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
+                                id="add-university-degree">+ <span data-i18n="university_degree_label">{{
+                                    translations['university_degree_label']['de'] }}</span></button>
+                        </div>
+                        <!-- Work Experience -->
+                        <hr class="my-4">
+                        <h5 class="mb-3 mt-4" data-i18n="work_experience_label">{{
+                            translations['work_experience_label']['de'] }}</h5>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="previous_professions_label">{{
+                                translations['previous_professions_label']['de'] }}</label>
+                            <div id="work-experience-section"></div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
+                                id="add-work-experience">+ <span data-i18n="work_experience_label">{{
+                                    translations['work_experience_label']['de'] }}</span></button>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="drivers_licenses_label">{{
+                                translations['drivers_licenses_label']['de'] }}</label>
+                            <div id="drivers-licenses-section"></div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
+                                id="add-drivers-license">+ <span data-i18n="drivers_licenses_label">{{
+                                    translations['drivers_licenses_label']['de'] }}</span></button>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="desired_profession_label">{{
+                                translations['desired_profession_label']['de'] }}</label>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="nurse" id="prof_nurse">
+                                        <label class="form-check-label" for="prof_nurse" data-i18n="prof_nurse">{{
+                                            translations['prof_nurse']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="it" id="prof_it">
+                                        <label class="form-check-label" for="prof_it" data-i18n="prof_it">{{
+                                            translations['prof_it']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="teacher" id="prof_teacher">
+                                        <label class="form-check-label" for="prof_teacher" data-i18n="prof_teacher">{{
+                                            translations['prof_teacher']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="craftsman" id="prof_craftsman">
+                                        <label class="form-check-label" for="prof_craftsman"
+                                            data-i18n="prof_craftsman">{{ translations['prof_craftsman']['de']
+                                            }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="sales" id="prof_sales">
+                                        <label class="form-check-label" for="prof_sales" data-i18n="prof_sales">{{
+                                            translations['prof_sales']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="engineer" id="prof_engineer">
+                                        <label class="form-check-label" for="prof_engineer" data-i18n="prof_engineer">{{
+                                            translations['prof_engineer']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="chef" id="prof_chef">
+                                        <label class="form-check-label" for="prof_chef" data-i18n="prof_chef">{{
+                                            translations['prof_chef']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="other" id="prof_other">
+                                        <label class="form-check-label" for="prof_other" data-i18n="prof_other">{{
+                                            translations['prof_other']['de'] }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="desired_profession"
+                                            value="none" id="prof_none">
+                                        <label class="form-check-label" for="prof_none" data-i18n="prof_none">{{
+                                            translations['prof_none']['de'] }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="desired_working_hours_label">{{
+                                translations['desired_working_hours_label']['de'] }}</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="desired_working_hours"
+                                    value="full" id="work_full">
+                                <label class="form-check-label" for="work_full" data-i18n="work_full">{{
+                                    translations['work_full']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="desired_working_hours"
+                                    value="part" id="work_part">
+                                <label class="form-check-label" for="work_part" data-i18n="work_part">{{
+                                    translations['work_part']['de'] }}</label>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="relocation_label">{{
+                                translations['relocation_label']['de'] }}</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="willing_to_relocate" value="yes"
+                                    id="relocate_yes">
+                                <label class="form-check-label" for="relocate_yes" data-i18n="yes">{{
+                                    translations['yes']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="willing_to_relocate" value="no"
+                                    id="relocate_no">
+                                <label class="form-check-label" for="relocate_no" data-i18n="no">{{
+                                    translations['no']['de'] }}</label>
+                            </div>
+                        </div>
+                        <!-- Support Needs & Learning Preferences (Stub, can be expanded) -->
+                        <hr class="my-4">
+                        <h5 class="mb-3 mt-4" data-i18n="support_section_label">{{
+                            translations['support_section_label']['de'] }}
+                        </h5>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="support_measures_label">{{
+                                translations['support_measures_label']['de'] }}</label>
+                            <div class="table-responsive mb-3">
+                                <table class="table table-bordered align-middle bg-white">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th data-i18n="matrix_measure">{{ translations['matrix_measure']['de'] }}
+                                            </th>
+                                            <th data-i18n="matrix_yes">{{ translations['matrix_yes']['de'] }}</th>
+                                            <th data-i18n="matrix_no">{{ translations['matrix_no']['de'] }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n="support_language">{{ translations['support_language']['de']
+                                                }}</td>
+                                            <td><input type="radio" name="support_language" value="yes"></td>
+                                            <td><input type="radio" name="support_language" value="no"></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n="support_recognition">{{
+                                                translations['support_recognition']['de'] }}</td>
+                                            <td><input type="radio" name="support_recognition" value="yes"></td>
+                                            <td><input type="radio" name="support_recognition" value="no"></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n="support_career">{{ translations['support_career']['de'] }}
+                                            </td>
+                                            <td><input type="radio" name="support_career" value="yes"></td>
+                                            <td><input type="radio" name="support_career" value="no"></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n="support_integration">{{
+                                                translations['support_integration']['de'] }}</td>
+                                            <td><input type="radio" name="support_integration" value="yes"></td>
+                                            <td><input type="radio" name="support_integration" value="no"></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n="support_basic">{{ translations['support_basic']['de'] }}</td>
+                                            <td><input type="radio" name="support_basic" value="yes"></td>
+                                            <td><input type="radio" name="support_basic" value="no"></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n="support_other">{{ translations['support_other']['de'] }}</td>
+                                            <td><input type="radio" name="support_other" value="yes"></td>
+                                            <td><input type="radio" name="support_other" value="no"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="learning_label">{{ translations['learning_label']['de']
+                                }}</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="preferred_learning" value="online"
+                                    id="learn_online">
+                                <label class="form-check-label" for="learn_online" data-i18n="learn_online">{{
+                                    translations['learn_online']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="preferred_learning"
+                                    value="inperson" id="learn_inperson">
+                                <label class="form-check-label" for="learn_inperson" data-i18n="learn_inperson">{{
+                                    translations['learn_inperson']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="preferred_learning" value="hybrid"
+                                    id="learn_hybrid">
+                                <label class="form-check-label" for="learn_hybrid" data-i18n="learn_hybrid">{{
+                                    translations['learn_hybrid']['de'] }}</label>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="interest_label">{{ translations['interest_label']['de']
+                                }}</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="interest" value="language"
+                                    id="interest_language">
+                                <label class="form-check-label" for="interest_language" data-i18n="interest_language">{{
+                                    translations['interest_language']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="interest" value="training"
+                                    id="interest_training">
+                                <label class="form-check-label" for="interest_training" data-i18n="interest_training">{{
+                                    translations['interest_training']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="interest" value="coaching"
+                                    id="interest_coaching">
+                                <label class="form-check-label" for="interest_coaching" data-i18n="interest_coaching">{{
+                                    translations['interest_coaching']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="interest" value="job"
+                                    id="interest_job">
+                                <label class="form-check-label" for="interest_job" data-i18n="interest_job">{{
+                                    translations['interest_job']['de'] }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="interest" value="childcare"
+                                    id="interest_childcare">
+                                <label class="form-check-label" for="interest_childcare"
+                                    data-i18n="interest_childcare">{{ translations['interest_childcare']['de']
+                                    }}</label>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" data-i18n="other_qualifications_label">{{
+                                translations['other_qualifications_label']['de'] }}</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="other_qualifications"
+                                    value="first_aid" id="qual_first_aid">
+                                <label class="form-check-label" for="qual_first_aid" data-i18n="qual_first_aid">{{
+                                    translations['qual_first_aid']['de'] }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="other_qualifications"
+                                    value="it_basics" id="qual_it_basics">
+                                <label class="form-check-label" for="qual_it_basics" data-i18n="qual_it_basics">{{
+                                    translations['qual_it_basics']['de'] }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="other_qualifications"
+                                    value="hygiene" id="qual_hygiene">
+                                <label class="form-check-label" for="qual_hygiene" data-i18n="qual_hygiene">{{
+                                    translations['qual_hygiene']['de'] }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="other_qualifications"
+                                    value="volunteering" id="qual_volunteering">
+                                <label class="form-check-label" for="qual_volunteering" data-i18n="qual_volunteering">{{
+                                    translations['qual_volunteering']['de'] }}</label>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submit-btn" data-i18n="submit">{{
+                                translations['submit']['de'] }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script id="translations-json" type="application/json">{{ translations|tojson }}</script>
+<script>
+    let translations = JSON.parse(document.getElementById('translations-json').textContent);
+    let currentLang = 'de';
+
+    function updateDynamicRows() {
+        // Update all labels and options in all dynamic sections
+        document.querySelectorAll('.form-label[data-i18n], .form-check-label[data-i18n], select[data-i18n], option[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[key] && translations[key][currentLang]) {
+                el.textContent = translations[key][currentLang];
+            }
+        });
+    }
+
+    function updateLabels(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[key] && translations[key][lang]) {
+                if (el.tagName === 'OPTION' || el.tagName === 'BUTTON' || el.tagName === 'LABEL' || el.tagName === 'H5' || el.tagName === 'H4') {
+                    el.textContent = translations[key][lang];
+                } else {
+                    el.innerText = translations[key][lang];
+                }
+            }
+        });
+        // Update placeholders
+        document.querySelectorAll('input[placeholder][data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[key] && translations[key][lang]) {
+                el.placeholder = translations[key][lang];
+            }
+        });
+        updateDynamicRows();
+    }
+
+    document.getElementById('lang-switcher').addEventListener('change', function () {
+        currentLang = this.value;
+        updateLabels(currentLang);
+    });
+
+    // Children repeating section logic
+    const childrenSection = document.getElementById('children-section');
+    const addChildBtn = document.getElementById('add-child');
+    let childCount = 0;
+    function addChildRow(data) {
+        childCount++;
+        const row = document.createElement('div');
+        row.className = 'row g-2 align-items-end mb-2';
+        row.innerHTML = `<div class=\"col-4\"><label class=\"form-label\" data-i18n=\"child_age\">${translations['child_age'][currentLang]}</label><select name=\"children-${childCount}-age\" class=\"form-select\"><option value=\"\" selected disabled hidden></option>${Array.from({ length: 18 }, (_, i) => `<option value=\"${i + 1}\">${i + 1}</option>`).join('')}</select></div><div class=\"col-5\"><label class=\"form-label\" data-i18n=\"childcare_needed\">${translations['childcare_needed'][currentLang]}</label><div><input type=\"radio\" name=\"children-${childCount}-childcare_needed\" value=\"yes\" id=\"childcare_yes_${childCount}\"><label for=\"childcare_yes_${childCount}\" data-i18n=\"yes\">${translations['yes'][currentLang]}</label><input type=\"radio\" name=\"children-${childCount}-childcare_needed\" value=\"no\" id=\"childcare_no_${childCount}\"><label for=\"childcare_no_${childCount}\" data-i18n=\"no\">${translations['no'][currentLang]}</label></div></div><div class=\"col-3\"><button type=\"button\" class=\"btn btn-danger btn-sm remove-child\">&times;</button></div>`;
+        childrenSection.appendChild(row);
+        row.querySelector('.remove-child').onclick = () => {
+            row.remove();
+        };
+    }
+    addChildBtn.onclick = () => addChildRow();
+
+    // --- Dynamic Repeating Sections ---
+    function makeRepeater(sectionId, addBtnId, rowHtmlFn) {
+        const section = document.getElementById(sectionId);
+        const addBtn = document.getElementById(addBtnId);
+        let count = 0;
+        addBtn.onclick = () => {
+            count++;
+            const row = document.createElement('div');
+            row.className = 'row g-2 align-items-end mb-2';
+            row.innerHTML = rowHtmlFn(count);
+            section.appendChild(row);
+            row.querySelector('.remove-row').onclick = () => row.remove();
+            // Set date placeholder for any date input
+            row.querySelectorAll('input[type="date"]').forEach(input => {
+                input.placeholder = translations['date_placeholder'][currentLang];
+            });
+            // Update translations for all new elements
+            updateLabels(currentLang);
+        };
+    }
+
+    // Foreign Languages
+    makeRepeater('foreign-languages-section', 'add-foreign-language', (i) => `
+        <div class="row mb-1">
+            <div class="col-12">
+                <strong class="row-title d-block mb-2" data-i18n="foreign_languages_label" style="font-size:1.1rem;">${translations['foreign_languages_label'][currentLang]}</strong>
+            </div>
+        </div>
+        <div class="row g-2 align-items-end mb-2">
+            <div class="col-4">
+                <label class="form-label" data-i18n="foreign_language_label">${translations['foreign_language_label'][currentLang]}</label>
+                <select name="foreign_languages-${i}-language" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="ukrainian" data-i18n="nationality_ukrainian">${translations['nationality_ukrainian'][currentLang]}</option>
+                    <option value="german" data-i18n="nationality_german">${translations['nationality_german'][currentLang]}</option>
+                    <option value="polish" data-i18n="nationality_polish">${translations['nationality_polish'][currentLang]}</option>
+                    <option value="turkish" data-i18n="nationality_turkish">${translations['nationality_turkish'][currentLang]}</option>
+                    <option value="arabic" data-i18n="nationality_arabic">${translations['nationality_arabic'][currentLang]}</option>
+                    <option value="afghan" data-i18n="nationality_afghan">${translations['nationality_afghan'][currentLang]}</option>
+                    <option value="russian" data-i18n="nationality_russian">${translations['nationality_russian'][currentLang]}</option>
+                    <option value="kurdish" data-i18n="nationality_kurdish">${translations['nationality_kurdish'][currentLang]}</option>
+                    <option value="somali" data-i18n="nationality_somali">${translations['nationality_somali'][currentLang]}</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <select name="foreign_languages-${i}-level" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="foreign_languages-${i}-certificate" value="yes" id="fl_cert_yes_${i}">
+                    <label class="form-check-label" for="fl_cert_yes_${i}" data-i18n="yes">${translations['yes'][currentLang]}</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="foreign_languages-${i}-certificate" value="no" id="fl_cert_no_${i}">
+                    <label class="form-check-label" for="fl_cert_no_${i}" data-i18n="no">${translations['no'][currentLang]}</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger btn-sm remove-row">&times;</button>
+            </div>
+        </div>
+    `);
+
+    // School Diplomas
+    makeRepeater('school-diplomas-section', 'add-school-diploma', (i) => `
+        <div class="row mb-1">
+            <div class="col-12">
+                <strong class="row-title d-block mb-2" data-i18n="school_diplomas_label" style="font-size:1.1rem;">${translations['school_diplomas_label'][currentLang]}</strong>
+            </div>
+        </div>
+        <div class="row g-2 align-items-end mb-2">
+            <div class="col-4">
+                <label class="form-label" data-i18n="school_diploma_label">${translations['school_diploma_label'][currentLang]}</label>
+                <select name="school_diplomas-${i}-diploma" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="none">Kein Abschluss</option>
+                    <option value="hauptschule">Hauptschulabschluss (Germany)</option>
+                    <option value="realschule">Realschulabschluss (Germany)</option>
+                    <option value="abitur">Abitur (Germany)</option>
+                    <option value="ua_9">Ukrainischer Schulabschluss (9. Klasse)</option>
+                    <option value="ua_11">Ukrainischer Schulabschluss (11. Klasse)</option>
+                    <option value="ua_junior">Dyplom Molodshoho Spetsialista</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label class="form-label" data-i18n="school_diploma_date_label">${translations['school_diploma_date_label'][currentLang]}</label>
+                <input type="date" name="school_diplomas-${i}-date" class="form-control" placeholder="${translations['date_placeholder'][currentLang]}">
+            </div>
+            <div class="col-3">
+                <label class="form-label" data-i18n="school_diploma_country_label">${translations['school_diploma_country_label'][currentLang]}</label>
+                <select name="school_diplomas-${i}-country" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="de">Deutschland</option>
+                    <option value="ua">Ukraine</option>
+                    <option value="pl">Polen</option>
+                    <option value="tr">Türkei</option>
+                    <option value="other">Andere</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger btn-sm remove-row">&times;</button>
+            </div>
+        </div>
+    `);
+
+    // University Degrees
+    makeRepeater('university-degrees-section', 'add-university-degree', (i) => `
+        <div class="row mb-1">
+            <div class="col-12">
+                <strong class="row-title d-block mb-2" data-i18n="university_degrees_label" style="font-size:1.1rem;">${translations['university_degrees_label'][currentLang]}</strong>
+            </div>
+        </div>
+        <div class="row g-2 align-items-end mb-2">
+            <div class="col-3">
+                <label class="form-label" data-i18n="university_degree_label">${translations['university_degree_label'][currentLang]}</label>
+                <select name="university_degrees-${i}-degree" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="none">Kein Abschluss</option>
+                    <option value="bachelor">Bachelor</option>
+                    <option value="master">Master</option>
+                    <option value="diplom">Diplom</option>
+                    <option value="phd">PhD (Doktor)</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label class="form-label" data-i18n="university_field_label">${translations['university_field_label'][currentLang]}</label>
+                <select name="university_degrees-${i}-field" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="none">Kein Studium</option>
+                    <option value="engineering">Ingenieurwissenschaften</option>
+                    <option value="it">Informatik/IT</option>
+                    <option value="medicine">Medizin/Gesundheit</option>
+                    <option value="business">Wirtschaft</option>
+                    <option value="humanities">Geisteswissenschaften</option>
+                    <option value="science">Naturwissenschaften</option>
+                    <option value="teaching">Lehramt</option>
+                    <option value="art">Kunst/Design</option>
+                    <option value="other">Andere</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <label class="form-label" data-i18n="university_from_label">${translations['university_from_label'][currentLang]}</label>
+                <input type="date" name="university_degrees-${i}-date_from" class="form-control" placeholder="${translations['date_placeholder'][currentLang]}">
+            </div>
+            <div class="col-2">
+                <label class="form-label" data-i18n="university_to_label">${translations['university_to_label'][currentLang]}</label>
+                <input type="date" name="university_degrees-${i}-date_to" class="form-control" placeholder="${translations['date_placeholder'][currentLang]}">
+            </div>
+            <div class="col-1">
+                <label class="form-label" data-i18n="university_country_label">${translations['university_country_label'][currentLang]}</label>
+                <select name="university_degrees-${i}-country" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="de">Deutschland</option>
+                    <option value="ua">Ukraine</option>
+                    <option value="pl">Polen</option>
+                    <option value="tr">Türkei</option>
+                    <option value="other">Andere</option>
+                </select>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-danger btn-sm remove-row">&times;</button>
+            </div>
+        </div>
+    `);
+
+    // Work Experience
+    makeRepeater('work-experience-section', 'add-work-experience', (i) => `
+        <div class="row mb-1">
+            <div class="col-12">
+                <strong class="row-title d-block mb-2" data-i18n="work_experience_label" style="font-size:1.1rem;">${translations['work_experience_label'][currentLang]}</strong>
+            </div>
+        </div>
+        <div class="row g-2 align-items-end mb-2">
+            <div class="col-4">
+                <label class="form-label" data-i18n="work_industry_label">${translations['work_industry_label'][currentLang]}</label>
+                <select name="work_experience-${i}-industry" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="health">Gesundheit</option>
+                    <option value="tech">Technik</option>
+                    <option value="education">Bildung</option>
+                    <option value="gastronomy">Gastronomie</option>
+                    <option value="retail">Einzelhandel</option>
+                    <option value="construction">Bauwesen</option>
+                    <option value="other">Andere</option>
+                    <option value="none">Keine</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label class="form-label" data-i18n="work_from_label">${translations['work_from_label'][currentLang]}</label>
+                <input type="date" name="work_experience-${i}-date_from" class="form-control" placeholder="${translations['date_placeholder'][currentLang]}">
+            </div>
+            <div class="col-3">
+                <label class="form-label" data-i18n="work_to_label">${translations['work_to_label'][currentLang]}</label>
+                <input type="date" name="work_experience-${i}-date_to" class="form-control" placeholder="${translations['date_placeholder'][currentLang]}">
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger btn-sm remove-row">&times;</button>
+            </div>
+        </div>
+    `);
+
+    // Driver's Licenses
+    makeRepeater('drivers-licenses-section', 'add-drivers-license', (i) => `
+        <div class="row mb-1">
+            <div class="col-12">
+                <strong class="row-title d-block mb-2" data-i18n="drivers_licenses_label" style="font-size:1.1rem;">${translations['drivers_licenses_label'][currentLang]}</strong>
+            </div>
+        </div>
+        <div class="row g-2 align-items-end mb-2">
+            <div class="col-4">
+                <label class="form-label" data-i18n="drivers_license_class_label">${translations['drivers_license_class_label'][currentLang]}</label>
+                <select name="drivers_licenses-${i}-class" class="form-select">
+                    <option value="" selected disabled hidden></option>
+                    <option value="AM">AM (A1)</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2 (A)</option>
+                    <option value="B">B</option>
+                    <option value="BE">BE</option>
+                    <option value="C1">C1</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label class="form-label" data-i18n="drivers_license_date_label">${translations['drivers_license_date_label'][currentLang]}</label>
+                <input type="date" name="drivers_licenses-${i}-date" class="form-control" placeholder="${translations['date_placeholder'][currentLang]}">
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-danger btn-sm remove-row">&times;</button>
+            </div>
+        </div>
+    `);
+
+    // LocalStorage caching
+    const form = document.getElementById('user-intake-form');
+    const FORM_CACHE_KEY = 'user_intake_form_cache';
+    // Restore cache
+    window.addEventListener('DOMContentLoaded', () => {
+        updateLabels(currentLang);
+        const cache = localStorage.getItem(FORM_CACHE_KEY);
+        if (cache) {
+            const data = JSON.parse(cache);
+            Object.entries(data).forEach(([k, v]) => {
+                const el = form.elements[k];
+                if (el) el.value = v;
+            });
+            // TODO: restore children and other repeating sections from cache
+        }
+    });
+    // Save cache on change
+    form.addEventListener('input', () => {
+        const data = {};
+        Array.from(form.elements).forEach(el => {
+            if (el.name && (el.type !== 'radio' || el.checked)) {
+                data[el.name] = el.value;
+            }
+        });
+        localStorage.setItem(FORM_CACHE_KEY, JSON.stringify(data));
+    });
+    // Clear cache on submit
+    form.addEventListener('submit', () => {
+        localStorage.removeItem(FORM_CACHE_KEY);
+    });
+</script>
+<script>
+    // --- Random Form Filler for Testing ---
+    // Paste this function in the browser console to fill the form with random values
+    window.fillFormWithRandomData = function () {
+        function randomString(len) {
+            const chars = 'abcdefghijklmnopqrstuvwxyz';
+            let str = '';
+            for (let i = 0; i < len; i++) str += chars[Math.floor(Math.random() * chars.length)];
+            return str;
+        }
+        function randomDate(start, end) {
+            const d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+            return d.toISOString().split('T')[0];
+        }
+        function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+        const form = document.getElementById('user-intake-form');
+        // Personal info
+        form.elements['first_name'].value = randomString(6);
+        form.elements['last_name'].value = randomString(8);
+        form.elements['date_of_birth'].value = randomDate(new Date(1970, 0, 1), new Date(2005, 0, 1));
+        form.elements['gender'].value = pick(['male', 'female', 'diverse']);
+        form.elements['nationality'].value = pick(['ukrainian', 'german', 'polish', 'turkish', 'arabic', 'afghan', 'russian', 'kurdish', 'somali']);
+        form.elements['since_in_germany'].value = randomDate(new Date(2015, 0, 1), new Date());
+        form.elements['residence_permit'].value = pick(['aufenthaltserlaubnis', 'blaue_karte', 'niederlassung', 'daueraufenthalt', 'visum', 'studierende', 'asyl', 'duldung']);
+        form.elements['address'].value = randomString(10) + ' Str. 1';
+        form.elements['postal_city'].value = Math.floor(Math.random() * 90000 + 10000) + ' Berlin';
+        form.elements['phone'].value = '+49' + Math.floor(Math.random() * 1000000000);
+        form.elements['email'].value = randomString(5) + '@test.com';
+        // Children (add 2)
+        for (let i = 0; i < 2; i++) document.getElementById('add-child').click();
+        document.querySelectorAll('#children-section .row.g-2').forEach((row, idx) => {
+            row.querySelector('select').value = pick([...Array(18).keys()].map(x => x + 1));
+            row.querySelectorAll('input[type=radio]')[pick([0, 1])].checked = true;
+        });
+        // Health restrictions
+        ['severe', 'mobility', 'visual', 'hearing', 'chronic', 'other'].forEach(key => {
+            if (Math.random() > 0.5) form.elements['restriction_' + key].checked = true;
+            form.elements['degree_' + key].value = Math.floor(Math.random() * 100);
+        });
+        // Mother tongue
+        form.elements['mother_tongue'].value = pick(['ukrainian', 'german', 'polish', 'turkish', 'arabic', 'afghan', 'russian', 'kurdish', 'somali']);
+        // Foreign languages (add 2)
+        for (let i = 0; i < 2; i++) document.getElementById('add-foreign-language').click();
+        document.querySelectorAll('#foreign-languages-section .row.g-2').forEach((row, idx) => {
+            if (idx > 1) return; // only fill first 2
+            row.querySelector('select').value = pick(['ukrainian', 'german', 'polish', 'turkish', 'arabic', 'afghan', 'russian', 'kurdish', 'somali']);
+            row.querySelectorAll('select')[1].value = pick(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+            row.querySelectorAll('input[type=radio]')[pick([0, 1])].checked = true;
+        });
+        // School diplomas (add 1)
+        document.getElementById('add-school-diploma').click();
+        document.querySelectorAll('#school-diplomas-section .row.g-2').forEach((row, idx) => {
+            row.querySelector('select').value = pick(['none', 'hauptschule', 'realschule', 'abitur', 'ua_9', 'ua_11', 'ua_junior']);
+            row.querySelector('input[type=date]').value = randomDate(new Date(1990, 0, 1), new Date());
+            row.querySelectorAll('select')[1].value = pick(['de', 'ua', 'pl', 'tr', 'other']);
+        });
+        // University degrees (add 1)
+        document.getElementById('add-university-degree').click();
+        document.querySelectorAll('#university-degrees-section .row.g-2').forEach((row, idx) => {
+            row.querySelector('select').value = pick(['none', 'bachelor', 'master', 'diplom', 'phd']);
+            row.querySelectorAll('select')[1].value = pick(['none', 'engineering', 'it', 'medicine', 'business', 'humanities', 'science', 'teaching', 'art', 'other']);
+            row.querySelectorAll('input[type=date]')[0].value = randomDate(new Date(2000, 0, 1), new Date());
+            row.querySelectorAll('input[type=date]')[1].value = randomDate(new Date(2001, 0, 1), new Date());
+            row.querySelectorAll('select')[2].value = pick(['de', 'ua', 'pl', 'tr', 'other']);
+        });
+        // Work experience (add 2)
+        for (let i = 0; i < 2; i++) document.getElementById('add-work-experience').click();
+        document.querySelectorAll('#work-experience-section .row.g-2').forEach((row, idx) => {
+            row.querySelector('select').value = pick(['health', 'tech', 'education', 'gastronomy', 'retail', 'construction', 'other', 'none']);
+            row.querySelectorAll('input[type=date]')[0].value = randomDate(new Date(2010, 0, 1), new Date());
+            row.querySelectorAll('input[type=date]')[1].value = randomDate(new Date(2011, 0, 1), new Date());
+        });
+        // Driver's licenses (add 1)
+        document.getElementById('add-drivers-license').click();
+        document.querySelectorAll('#drivers-licenses-section .row.g-2').forEach((row, idx) => {
+            row.querySelector('select').value = pick(['AM', 'A1', 'A2', 'B', 'BE', 'C1', 'C', 'D']);
+            row.querySelector('input[type=date]').value = randomDate(new Date(2000, 0, 1), new Date());
+        });
+        // Desired profession
+        ['prof_nurse', 'prof_it', 'prof_teacher', 'prof_craftsman', 'prof_sales', 'prof_engineer', 'prof_chef', 'prof_other', 'prof_none'].forEach(id => {
+            if (Math.random() > 0.7) document.getElementById(id).checked = true;
+        });
+        // Desired working hours
+        ['work_full', 'work_part'].forEach(id => {
+            if (Math.random() > 0.5) document.getElementById(id).checked = true;
+        });
+        // Willing to relocate
+        pick(['relocate_yes', 'relocate_no']);
+        document.getElementById(pick(['relocate_yes', 'relocate_no'])).checked = true;
+        // Support needs
+        ['support_language', 'support_recognition', 'support_career', 'support_integration', 'support_basic', 'support_other'].forEach(name => {
+            form.elements[name][pick([0, 1])].checked = true;
+        });
+        // Preferred learning
+        ['learn_online', 'learn_inperson', 'learn_hybrid'].forEach(id => {
+            if (Math.random() > 0.5) document.getElementById(id).checked = true;
+        });
+        // Interest
+        ['interest_language', 'interest_training', 'interest_coaching', 'interest_job', 'interest_childcare'].forEach(id => {
+            if (Math.random() > 0.5) document.getElementById(id).checked = true;
+        });
+        // Other qualifications
+        ['qual_first_aid', 'qual_it_basics', 'qual_hygiene', 'qual_volunteering'].forEach(id => {
+            if (Math.random() > 0.5) document.getElementById(id).checked = true;
+        });
+        alert('Form filled with random data!');
+    };
+    // Usage: open browser console and run fillFormWithRandomData();
+</script>
+{% endblock %}

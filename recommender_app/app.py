@@ -1,11 +1,14 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session
 from db.db_reader import fetch_courses
 from scoring.rule_score_function import compute_final_score
+from forms import UserIntakeForm
+import json
 
 app = Flask(__name__)
+app.secret_key = 'dev-secret-key'
 
 # --- Dummy Data ---
 # This simulates the output of your course_ranker.py
@@ -112,18 +115,74 @@ def dashboard():
     """Main dashboard showing the overall process."""
     return render_template('dashboard.html')
 
+def form_data_to_scoring_profile(form_data):
+    profile = {}
+    # German language level: from foreign_languages or mother_tongue
+    profile['german_level'] = next((fl['level'] for fl in form_data.get('foreign_languages', []) if fl.get('language') == 'german'), 'A1')
+    # German language certificate
+    profile['has_language_certificate'] = any(fl.get('certificate') == 'yes' and fl.get('language') == 'german' for fl in form_data.get('foreign_languages', []))
+    # Education: highest degree (university), fallback to school diploma
+    uni_degrees = [ud['degree'] for ud in form_data.get('university_degrees', []) if ud.get('degree') and ud['degree'] != 'none']
+    school_degrees = [sd['diploma'] for sd in form_data.get('school_diplomas', []) if sd.get('diploma') and sd['diploma'] != 'none']
+    profile['education'] = uni_degrees[0] if uni_degrees else (school_degrees[0] if school_degrees else 'none')
+    # Work experience: count by industry
+    work_exp = {}
+    for w in form_data.get('work_experience', []):
+        field = w.get('industry')
+        if field and field != 'none':
+            work_exp[field] = work_exp.get(field, 0) + 1
+    profile['work_experience'] = work_exp
+    # Desired job
+    profile['desired_job'] = form_data.get('desired_profession', '')
+    # Interests
+    interest = form_data.get('interest', [])
+    if isinstance(interest, list):
+        profile['interest'] = ', '.join(interest)
+    else:
+        profile['interest'] = interest
+    # Preferred learning mode
+    preferred_learning = form_data.get('preferred_learning', [])
+    if isinstance(preferred_learning, list) and preferred_learning:
+        profile['preferred_learning_mode'] = preferred_learning[0]
+    else:
+        profile['preferred_learning_mode'] = preferred_learning if preferred_learning else 'online'
+    # Childcare needs
+    profile['has_childcare_needs'] = any(child.get('childcare_needed') == 'yes' for child in form_data.get('children', []))
+    # Location (use city part of postal_city, fallback to 'berlin')
+    pc = form_data.get('postal_city', 'berlin')
+    profile['location'] = pc.split()[-1].lower() if pc else 'berlin'
+    # Can relocate
+    profile['can_relocate'] = form_data.get('willing_to_relocate', 'no') == 'yes'
+    # Disability (not in form, default False)
+    profile['has_disability'] = False
+    # Computer skills
+    oq = form_data.get('other_qualifications', [])
+    if isinstance(oq, str): oq = [oq]
+    profile['computer_skills'] = 'it_basics' in oq
+    # Driving license
+    profile['driving_license'] = bool(form_data.get('drivers_licenses'))
+    # Skills (collect from diplomas, degrees, work, etc. - here just a placeholder)
+    profile['skills'] = []
+    return profile
+
 @app.route('/recommendations')
 def recommendations():
-    """Displays the top 10 course recommendations with real scoring."""
+    """Displays the top 4 course recommendations with real scoring."""
+    user_profile = USER_PROFILE
+    if 'user_profile' in session:
+        form_data = session['user_profile']
+        user_profile = form_data_to_scoring_profile(form_data)
+        print('USING SUBMITTED USER PROFILE FOR SCORING:', user_profile)
+        session.pop('user_profile')  # Clear after use
     courses = fetch_courses()
     ranked_courses = []
     for course in courses:
-        score = compute_final_score(USER_PROFILE, course)
+        score = compute_final_score(user_profile, course)
         course_copy = course.copy()
         course_copy['score'] = score
         ranked_courses.append(course_copy)
     ranked_courses.sort(key=lambda x: x['score'], reverse=True)
-    top_courses = ranked_courses[:10]
+    top_courses = ranked_courses[:4]  # Only show top 4
     # Ensure every course has a 'skills' key for the template
     for course in top_courses:
         if 'skills' not in course:
@@ -155,6 +214,22 @@ def course_detail(course_id):
             {"title": "Entry Level Position", "company": "Startup Hub", "status": "Open", "location": "On-site", "type": "Part-time"},
         ]
     return render_template('course_detail.html', course=course, providers=providers, jobs=jobs)
+
+@app.route('/user-form', methods=['GET', 'POST'])
+def user_form():
+    with open('recommender_app/form_translations.json', encoding='utf-8') as f:
+        translations = json.load(f)
+    form = UserIntakeForm()
+    if form.validate_on_submit():
+        # Fetch submitted data
+        user_data = form.data
+        print('USER FORM SUBMISSION:', user_data)  # For debugging
+        session['user_profile'] = user_data
+        return redirect(url_for('recommendations'))
+    else:
+        if form.is_submitted():
+            print('FORM ERRORS:', form.errors)
+    return render_template('user_form.html', form=form, translations=translations)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

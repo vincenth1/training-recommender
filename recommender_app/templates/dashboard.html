@@ -11,7 +11,7 @@
         </h1>
         <p class="lead text-secondary mb-4">Our AI-powered platform matches your skills with the perfect training
             opportunities and career paths.</p>
-        <a href="/recommendations" class="btn btn-primary btn-lg shadow-sm">
+        <a href="/user-form" class="btn btn-primary btn-lg shadow-sm">
             Get Personalized Recommendations
             <i class="fas fa-arrow-right ms-2"></i>
         </a>
@@ -166,15 +166,6 @@
     </div>
 </div>
 
-<div class="card mb-5" id="formester-form-card" style="display: none;">
-    <div class="card-body">
-        <h3 class="mb-4">Datenaufnahme-Formular</h3>
-        <script src="https://imoqtadq.formester.com/widget/standard.js" type="module"></script>
-        <formester-standard-form set-auto-height="true" height="100%" width="100%" id="hJvYjBMDL"
-            url="https://imoqtadq.formester.com/f/hJvYjBMDL" redirect-url="/recommendations"></formester-standard-form>
-    </div>
-</div>
-
 <div class="row g-4 mb-5">
     <div class="col-md-4">
         <div class="stat-card">
@@ -280,27 +271,14 @@
         const detailedView = document.getElementById('detailed-view');
         const showButton = document.getElementById('show-detailed-view');
         const hideButton = document.getElementById('hide-detailed-view');
-        const recBtn = document.querySelector('a.btn.btn-primary.btn-lg');
-        const formCard = document.getElementById('formester-form-card');
-
         showButton.addEventListener('click', () => {
             simplifiedView.classList.add('d-none');
             detailedView.classList.remove('d-none');
         });
-
         hideButton.addEventListener('click', () => {
             detailedView.classList.add('d-none');
             simplifiedView.classList.remove('d-none');
         });
-
-        if (recBtn && formCard) {
-            recBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                formCard.style.display = '';
-                formCard.scrollIntoView({ behavior: 'smooth' });
-            });
-        }
-        // Optionally, handle post-submission logic here if Formester supports callbacks/events
     });
 </script>
 {% endblock %}
