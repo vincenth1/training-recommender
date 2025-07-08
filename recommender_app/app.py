@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from db.db_reader import fetch_courses
 from scoring.rule_score_function import compute_final_score
-from forms import UserIntakeForm
+from .forms import UserIntakeForm
 import json
 
 app = Flask(__name__)
