@@ -1,0 +1,877 @@
+{
+    "discover_your_career_path": {
+        "en": "Discover Your Career Path",
+        "de": "Entdecken Sie Ihren Karriereweg",
+        "ua": "Відкрийте свій кар'єрний шлях"
+    },
+    "ai_platform_intro": {
+        "en": "Our AI-powered platform matches your skills with the perfect training opportunities and career paths.",
+        "de": "Unsere KI-gestützte Plattform bringt Ihre Fähigkeiten mit den passenden Trainingsmöglichkeiten und Karrierewegen zusammen.",
+        "ua": "Наша платформа на основі ШІ підбирає для вас найкращі можливості навчання та кар'єрного розвитку."
+    },
+    "get_personalized_recommendations": {
+        "en": "Get Personalized Recommendations",
+        "de": "Personalisierte Empfehlungen erhalten",
+        "ua": "Отримати персоналізовані рекомендації"
+    },
+    "fill_out_form": {
+        "en": "Fill Out Form",
+        "de": "Formular ausfüllen",
+        "ua": "Заповнити форму"
+    },
+    "provide_background_interests": {
+        "en": "Provide your background and interests.",
+        "de": "Geben Sie Ihren Hintergrund und Ihre Interessen an.",
+        "ua": "Вкажіть ваш досвід та інтереси."
+    },
+    "get_recommendations": {
+        "en": "Get Recommendations",
+        "de": "Empfehlungen erhalten",
+        "ua": "Отримати рекомендації"
+    },
+    "see_best_matched_courses_jobs": {
+        "en": "See your best-matched courses and jobs.",
+        "de": "Sehen Sie Ihre am besten passenden Kurse und Jobs.",
+        "ua": "Перегляньте найкращі для вас курси та вакансії."
+    },
+    "book_a_coach": {
+        "en": "Book a Coach",
+        "de": "Coach buchen",
+        "ua": "Записатися до коуча"
+    },
+    "schedule_session_guidance": {
+        "en": "Schedule a session for guidance.",
+        "de": "Vereinbaren Sie eine Sitzung für Beratung.",
+        "ua": "Заплануйте консультацію для отримання порад."
+    },
+    "enroll_in_course": {
+        "en": "Enroll in Course",
+        "de": "Für Kurs anmelden",
+        "ua": "Записатися на курс"
+    },
+    "start_training_new_career": {
+        "en": "Start your training and new career.",
+        "de": "Starten Sie Ihre Ausbildung und neue Karriere.",
+        "ua": "Розпочніть навчання та нову кар'єру."
+    },
+    "show_detailed_view": {
+        "en": "Show Detailed View",
+        "de": "Detaillierte Ansicht anzeigen",
+        "ua": "Показати детальний перегляд"
+    },
+    "hide_detailed_view": {
+        "en": "Hide Detailed View",
+        "de": "Detaillierte Ansicht ausblenden",
+        "ua": "Сховати детальний перегляд"
+    },
+    "data_collection": {
+        "en": "Data Collection",
+        "de": "Datenerfassung",
+        "ua": "Збір даних"
+    },
+    "data_collection_desc": {
+        "en": "Fill out the digital form (language, education, experience, mobility, care, etc.).<br><b>Goal:</b> Basis for matching and counseling.",
+        "de": "Füllen Sie das digitale Formular aus (Sprache, Bildung, Erfahrung, Mobilität, Betreuung usw.).<br><b>Ziel:</b> Grundlage für Matching und Beratung.",
+        "ua": "Заповніть електронну форму (мова, освіта, досвід, мобільність, догляд тощо).<br><b>Мета:</b> Основа для підбору та консультування."
+    },
+    "schedule_coaching": {
+        "en": "Schedule Coaching",
+        "de": "Coaching vereinbaren",
+        "ua": "Запланувати коучинг"
+    },
+    "schedule_coaching_desc": {
+        "en": "Counselor arranges a personal or phone conversation.<br><b>Goal:</b> Career orientation and clarify interests.",
+        "de": "Berater vereinbart ein persönliches oder telefonisches Gespräch.<br><b>Ziel:</b> Berufsorientierung und Klärung der Interessen.",
+        "ua": "Консультант організовує особисту або телефонну розмову.<br><b>Мета:</b> Профорієнтація та уточнення інтересів."
+    },
+    "select_fields": {
+        "en": "Select 2–3 Fields",
+        "de": "2–3 Bereiche auswählen",
+        "ua": "Оберіть 2–3 сфери"
+    },
+    "select_fields_desc": {
+        "en": "Relevant career fields suggested based on your profile and labor market demand.",
+        "de": "Relevante Berufsfelder werden basierend auf Ihrem Profil und dem Arbeitsmarktbedarf vorgeschlagen.",
+        "ua": "Відповідні сфери діяльності пропонуються на основі вашого профілю та попиту на ринку праці."
+    },
+    "counseling_protocol": {
+        "en": "Counseling & Protocol",
+        "de": "Beratung & Protokoll",
+        "ua": "Консультування та протокол"
+    },
+    "counseling_protocol_desc": {
+        "en": "Session documents target job, qualifications, offers, and funding eligibility. Forms basis for Jobcenter application.",
+        "de": "Die Sitzung dokumentiert Zielberuf, Qualifikationen, Angebote und Förderfähigkeit. Grundlage für den Jobcenter-Antrag.",
+        "ua": "Сесія документує бажану професію, кваліфікації, пропозиції та можливість фінансування. Це основа для заявки до центру зайнятості."
+    },
+    "application_approval": {
+        "en": "Application & Approval",
+        "de": "Antrag & Bewilligung",
+        "ua": "Заявка та затвердження"
+    },
+    "application_approval_desc": {
+        "en": "After Jobcenter approval: assignment to qualification, provider notified, participation begins.",
+        "de": "Nach Jobcenter-Bewilligung: Zuweisung zur Qualifizierung, Anbieter benachrichtigt, Teilnahme beginnt.",
+        "ua": "Після затвердження центром зайнятості: призначення на навчання, повідомлення провайдера, початок участі."
+    },
+    "qualification_certificate": {
+        "en": "Qualification & Certificate",
+        "de": "Qualifizierung & Zertifikat",
+        "ua": "Кваліфікація та сертифікат"
+    },
+    "qualification_certificate_desc": {
+        "en": "Attend the course, receive a certificate. Info sent to placement system.",
+        "de": "Kurs besuchen, Zertifikat erhalten. Info wird an das Vermittlungssystem gesendet.",
+        "ua": "Відвідайте курс, отримайте сертифікат. Інформація надсилається до системи працевлаштування."
+    },
+    "matching_companies": {
+        "en": "Matching with Companies",
+        "de": "Matching mit Unternehmen",
+        "ua": "Підбір з компаніями"
+    },
+    "matching_companies_desc": {
+        "en": "System matches graduates with jobs; employers notified in advance.",
+        "de": "System vermittelt Absolventen an Jobs; Arbeitgeber werden im Voraus informiert.",
+        "ua": "Система підбирає випускників до вакансій; роботодавці повідомляються заздалегідь."
+    },
+    "accompanied_integration": {
+        "en": "Accompanied Integration",
+        "de": "Begleitete Integration",
+        "ua": "Супроводжувана інтеграція"
+    },
+    "accompanied_integration_desc": {
+        "en": "Application, interviews, trial work, and ongoing coaching for sustainable integration.",
+        "de": "Bewerbung, Vorstellungsgespräche, Probearbeit und laufendes Coaching für nachhaltige Integration.",
+        "ua": "Заявка, співбесіди, пробна робота та постійний супровід для стійкої інтеграції."
+    },
+    "stat_courses": {
+        "en": "15+",
+        "de": "15+",
+        "ua": "15+"
+    },
+    "available_courses": {
+        "en": "Available Courses",
+        "de": "Verfügbare Kurse",
+        "ua": "Доступні курси"
+    },
+    "stat_providers": {
+        "en": "8",
+        "de": "8",
+        "ua": "8"
+    },
+    "training_providers": {
+        "en": "Training Providers",
+        "de": "Bildungsträger",
+        "ua": "Навчальні заклади"
+    },
+    "stat_jobs": {
+        "en": "20+",
+        "de": "20+",
+        "ua": "20+"
+    },
+    "job_opportunities": {
+        "en": "Job Opportunities",
+        "de": "Jobmöglichkeiten",
+        "ua": "Вакансії"
+    },
+    "top_industries": {
+        "en": "Top Industries",
+        "de": "Top-Branchen",
+        "ua": "Топ-галузі"
+    },
+    "logistics_supply_chain": {
+        "en": "Logistics & Supply Chain",
+        "de": "Logistik & Lieferkette",
+        "ua": "Логістика та ланцюг постачання"
+    },
+    "high_demand": {
+        "en": "High Demand",
+        "de": "Hohe Nachfrage",
+        "ua": "Високий попит"
+    },
+    "construction_infrastructure": {
+        "en": "Construction & Infrastructure",
+        "de": "Bau & Infrastruktur",
+        "ua": "Будівництво та інфраструктура"
+    },
+    "hospitality_tourism": {
+        "en": "Hospitality & Tourism",
+        "de": "Gastgewerbe & Tourismus",
+        "ua": "Готельно-ресторанна справа та туризм"
+    },
+    "growing": {
+        "en": "Growing",
+        "de": "Wachsend",
+        "ua": "Зростає"
+    },
+    "why_choose_us": {
+        "en": "Why Choose Us?",
+        "de": "Warum wir?",
+        "ua": "Чому обирають нас?"
+    },
+    "ai_powered_matching": {
+        "en": "AI-powered course matching based on your profile",
+        "de": "KI-gestütztes Kurs-Matching basierend auf Ihrem Profil",
+        "ua": "Підбір курсів на основі ШІ за вашим профілем"
+    },
+    "direct_connections": {
+        "en": "Direct connections with certified training providers",
+        "de": "Direkte Verbindung zu zertifizierten Bildungsträgern",
+        "ua": "Прямі зв'язки з сертифікованими навчальними закладами"
+    },
+    "job_placement_assistance": {
+        "en": "Job placement assistance after course completion",
+        "de": "Unterstützung bei der Jobvermittlung nach Kursabschluss",
+        "ua": "Допомога з працевлаштуванням після завершення курсу"
+    },
+    "continuous_support": {
+        "en": "Continuous support throughout your journey",
+        "de": "Kontinuierliche Unterstützung während Ihrer Reise",
+        "ua": "Постійна підтримка протягом усього шляху"
+    },
+    "dashboard": {
+        "en": "Dashboard",
+        "de": "Übersicht",
+        "ua": "Головна"
+    },
+    "course_recommendations_title": {
+        "en": "Course Recommendations",
+        "de": "Kursempfehlungen",
+        "ua": "Рекомендовані курси"
+    },
+    "personalized_course_recommendations": {
+        "en": "Personalized Course Recommendations",
+        "de": "Personalisierte Kursempfehlungen",
+        "ua": "Персоналізовані рекомендації курсів"
+    },
+    "courses_ranked_by_match": {
+        "en": "Courses are ranked based on your profile match score and industry demand",
+        "de": "Kurse werden nach Ihrem Profil-Match und der Branchennachfrage sortiert",
+        "ua": "Курси відсортовані за відповідністю вашому профілю та попитом на ринку"
+    },
+    "refine_matches": {
+        "en": "Refine Matches",
+        "de": "Treffer verfeinern",
+        "ua": "Уточнити підбір"
+    },
+    "duration": {
+        "en": "Duration",
+        "de": "Dauer",
+        "ua": "Тривалість"
+    },
+    "flexible": {
+        "en": "Flexible",
+        "de": "Flexibel",
+        "ua": "Гнучко"
+    },
+    "match_score": {
+        "en": "Match Score",
+        "de": "Matching-Score",
+        "ua": "Відповідність"
+    },
+    "more": {
+        "en": "more",
+        "de": "mehr",
+        "ua": "ще"
+    },
+    "view_details": {
+        "en": "View Details",
+        "de": "Details ansehen",
+        "ua": "Детальніше"
+    },
+    "enrolled": {
+        "en": "enrolled",
+        "de": "angemeldet",
+        "ua": "записано"
+    },
+    "no_recommendations": {
+        "en": "No Recommendations Available",
+        "de": "Keine Empfehlungen verfügbar",
+        "ua": "Немає доступних рекомендацій"
+    },
+    "need_more_info": {
+        "en": "We need more information about your skills and interests to provide personalized recommendations.",
+        "de": "Wir benötigen mehr Informationen über Ihre Fähigkeiten und Interessen, um personalisierte Empfehlungen zu geben.",
+        "ua": "Нам потрібно більше інформації про ваші навички та інтереси для персоналізованих рекомендацій."
+    },
+    "complete_your_profile": {
+        "en": "Complete Your Profile",
+        "de": "Profil vervollständigen",
+        "ua": "Заповнити профіль"
+    },
+    "load_more_recommendations": {
+        "en": "Load More Recommendations",
+        "de": "Weitere Empfehlungen laden",
+        "ua": "Завантажити більше рекомендацій"
+    },
+    "verified_course": {
+        "en": "Verified Course",
+        "de": "Zertifizierter Kurs",
+        "ua": "Сертифікований курс"
+    },
+    "students_enrolled": {
+        "en": "students enrolled",
+        "de": "angemeldete Teilnehmer",
+        "ua": "записаних студентів"
+    },
+    "next_intake": {
+        "en": "Next intake",
+        "de": "Nächster Start",
+        "ua": "Наступний набір"
+    },
+    "rolling_admissions": {
+        "en": "Rolling admissions",
+        "de": "Laufende Aufnahme",
+        "ua": "Постійний набір"
+    },
+    "apply_now": {
+        "en": "Apply Now",
+        "de": "Jetzt bewerben",
+        "ua": "Подати заявку"
+    },
+    "choose_training_provider": {
+        "en": "Choose your preferred training provider",
+        "de": "Wählen Sie Ihren bevorzugten Bildungsträger",
+        "ua": "Оберіть бажаного навчального провайдера"
+    },
+    "available": {
+        "en": "Available",
+        "de": "Verfügbar",
+        "ua": "Доступно"
+    },
+    "capacity": {
+        "en": "Capacity",
+        "de": "Kapazität",
+        "ua": "Місткість"
+    },
+    "enroll_now": {
+        "en": "Enroll Now",
+        "de": "Jetzt anmelden",
+        "ua": "Записатися"
+    },
+    "no_providers_available": {
+        "en": "No Providers Available",
+        "de": "Keine Anbieter verfügbar",
+        "ua": "Немає доступних провайдерів"
+    },
+    "adding_providers": {
+        "en": "We're working on adding training providers for this course.",
+        "de": "Wir arbeiten daran, Anbieter für diesen Kurs hinzuzufügen.",
+        "ua": "Ми працюємо над додаванням провайдерів для цього курсу."
+    },
+    "related_positions_in": {
+        "en": "Related positions in",
+        "de": "Verwandte Positionen in",
+        "ua": "Суміжні вакансії у"
+    },
+    "jobs": {
+        "en": "Jobs",
+        "de": "Jobs",
+        "ua": "Вакансії"
+    },
+    "no_jobs_available": {
+        "en": "No Jobs Available",
+        "de": "Keine Jobs verfügbar",
+        "ua": "Немає доступних вакансій"
+    },
+    "adding_jobs": {
+        "en": "We're working on adding job opportunities in this field.",
+        "de": "Wir arbeiten daran, Jobmöglichkeiten in diesem Bereich hinzuzufügen.",
+        "ua": "Ми працюємо над додаванням вакансій у цій галузі."
+    },
+    "at": {
+        "en": "at",
+        "de": "bei",
+        "ua": "у"
+    },
+    "status": {
+        "en": "Status",
+        "de": "Status",
+        "ua": "Статус"
+    },
+    "location": {
+        "en": "Location",
+        "de": "Ort",
+        "ua": "Місце"
+    },
+    "type": {
+        "en": "Type",
+        "de": "Typ",
+        "ua": "Тип"
+    },
+    "more_job_details": {
+        "en": "More job details and application instructions can go here.",
+        "de": "Weitere Jobdetails und Bewerbungsanweisungen können hier stehen.",
+        "ua": "Тут можуть бути додаткові деталі вакансії та інструкції щодо подачі заявки."
+    },
+    "close": {
+        "en": "Close",
+        "de": "Schließen",
+        "ua": "Закрити"
+    },
+    "complete_training_to_apply": {
+        "en": "Please complete a training course to be able to apply.",
+        "de": "Bitte absolvieren Sie einen Kurs, um sich bewerben zu können.",
+        "ua": "Будь ласка, завершіть навчальний курс, щоб мати можливість подати заявку."
+    },
+    "full_time": {
+        "en": "Full-time",
+        "de": "Vollzeit",
+        "ua": "Повний робочий день"
+    },
+    "remote": {
+        "en": "Remote",
+        "de": "Remote",
+        "ua": "Віддалено"
+    },
+    "first_name": {
+        "en": "First Name",
+        "de": "Vorname",
+        "ua": "Ім'я"
+    },
+    "last_name": {
+        "en": "Last Name",
+        "de": "Nachname",
+        "ua": "Прізвище"
+    },
+    "personal_info": {
+        "en": "Personal Information",
+        "de": "Persönliche Angaben",
+        "ua": "Особиста інформація"
+    },
+    "date_of_birth": {
+        "en": "Date of Birth",
+        "de": "Geburtsdatum",
+        "ua": "Дата народження"
+    },
+    "date_placeholder": {
+        "en": "mm/dd/yyyy",
+        "de": "TT.MM.JJJJ",
+        "ua": "дд.мм.рррр"
+    },
+    "gender": {
+        "en": "Gender",
+        "de": "Geschlecht",
+        "ua": "Стать"
+    },
+    "nationality": {
+        "en": "Nationality",
+        "de": "Nationalität",
+        "ua": "Національність"
+    },
+    "since_in_germany": {
+        "en": "Since in Germany",
+        "de": "Seit in Deutschland",
+        "ua": "В Німеччині з"
+    },
+    "residence_permit": {
+        "en": "Residence Permit",
+        "de": "Aufenthaltstitel",
+        "ua": "Дозвіл на проживання"
+    },
+    "address": {
+        "en": "Address",
+        "de": "Adresse",
+        "ua": "Адреса"
+    },
+    "postal_city": {
+        "en": "Postal Code / City",
+        "de": "PLZ / Ort",
+        "ua": "Поштовий індекс / Місто"
+    },
+    "phone": {
+        "en": "Phone",
+        "de": "Telefon",
+        "ua": "Телефон"
+    },
+    "email": {
+        "en": "Email",
+        "de": "E-Mail",
+        "ua": "Електронна пошта"
+    },
+    "children_section": {
+        "en": "Children & Childcare",
+        "de": "Kinder & Kinderbetreuung",
+        "ua": "Діти та догляд"
+    },
+    "health_section": {
+        "en": "Health Restrictions",
+        "de": "Gesundheitliche Einschränkungen",
+        "ua": "Обмеження за станом здоров'я"
+    },
+    "matrix_header_restriction": {
+        "en": "Restriction",
+        "de": "Einschränkung",
+        "ua": "Обмеження"
+    },
+    "matrix_header_present": {
+        "en": "Present",
+        "de": "Vorhanden",
+        "ua": "Є"
+    },
+    "matrix_header_degree": {
+        "en": "Degree",
+        "de": "Grad",
+        "ua": "Ступінь"
+    },
+    "restriction_severe": {
+        "en": "Severe Disability",
+        "de": "Schwerbehinderung",
+        "ua": "Інвалідність"
+    },
+    "restriction_mobility": {
+        "en": "Mobility",
+        "de": "Mobilität",
+        "ua": "Мобільність"
+    },
+    "restriction_visual": {
+        "en": "Visual",
+        "de": "Sehvermögen",
+        "ua": "Зір"
+    },
+    "restriction_hearing": {
+        "en": "Hearing",
+        "de": "Hörvermögen",
+        "ua": "Слух"
+    },
+    "restriction_chronic": {
+        "en": "Chronic Illness",
+        "de": "Chronische Krankheit",
+        "ua": "Хронічна хвороба"
+    },
+    "restriction_other": {
+        "en": "Other",
+        "de": "Andere",
+        "ua": "Інше"
+    },
+    "language_section": {
+        "en": "Language & Education",
+        "de": "Sprache & Bildung",
+        "ua": "Мова та освіта"
+    },
+    "mother_tongue": {
+        "en": "Mother Tongue",
+        "de": "Muttersprache",
+        "ua": "Рідна мова"
+    },
+    "foreign_languages": {
+        "en": "Foreign Languages",
+        "de": "Fremdsprachen",
+        "ua": "Іноземні мови"
+    },
+    "school_diplomas_label": {
+        "en": "School Diplomas",
+        "de": "Schulabschlüsse",
+        "ua": "Шкільні дипломи"
+    },
+    "university_degrees_label": {
+        "en": "University Degrees",
+        "de": "Hochschulabschlüsse",
+        "ua": "Університетські ступені"
+    },
+    "work_experience_label": {
+        "en": "Work Experience",
+        "de": "Berufserfahrung",
+        "ua": "Досвід роботи"
+    },
+    "previous_professions_label": {
+        "en": "Previous Professions",
+        "de": "Bisherige Berufe",
+        "ua": "Попередні професії"
+    },
+    "drivers_licenses_label": {
+        "en": "Driver's Licenses",
+        "de": "Führerscheine",
+        "ua": "Водійські права"
+    },
+    "desired_profession_label": {
+        "en": "Desired Profession",
+        "de": "Gewünschter Beruf",
+        "ua": "Бажана професія"
+    },
+    "prof_nurse": {
+        "en": "Nurse",
+        "de": "Pflegekraft",
+        "ua": "Медсестра"
+    },
+    "prof_it": {
+        "en": "IT",
+        "de": "IT",
+        "ua": "ІТ"
+    },
+    "prof_teacher": {
+        "en": "Teacher",
+        "de": "Lehrer",
+        "ua": "Вчитель"
+    },
+    "prof_craftsman": {
+        "en": "Craftsman",
+        "de": "Handwerker",
+        "ua": "Ремісник"
+    },
+    "prof_sales": {
+        "en": "Sales",
+        "de": "Verkauf",
+        "ua": "Продажі"
+    },
+    "prof_engineer": {
+        "en": "Engineer",
+        "de": "Ingenieur",
+        "ua": "Інженер"
+    },
+    "prof_chef": {
+        "en": "Chef",
+        "de": "Koch",
+        "ua": "Кухар"
+    },
+    "prof_other": {
+        "en": "Other",
+        "de": "Andere",
+        "ua": "Інше"
+    },
+    "prof_none": {
+        "en": "None",
+        "de": "Keiner",
+        "ua": "Жодна"
+    },
+    "desired_working_hours_label": {
+        "en": "Desired Working Hours",
+        "de": "Gewünschte Arbeitszeit",
+        "ua": "Бажаний робочий час"
+    },
+    "work_full": {
+        "en": "Full-time",
+        "de": "Vollzeit",
+        "ua": "Повний робочий день"
+    },
+    "work_part": {
+        "en": "Part-time",
+        "de": "Teilzeit",
+        "ua": "Неповний робочий день"
+    },
+    "relocation_label": {
+        "en": "Willing to Relocate?",
+        "de": "Umzugsbereit?",
+        "ua": "Готові до переїзду?"
+    },
+    "yes": {
+        "en": "Yes",
+        "de": "Ja",
+        "ua": "Так"
+    },
+    "no": {
+        "en": "No",
+        "de": "Nein",
+        "ua": "Ні"
+    },
+    "support_section_label": {
+        "en": "Support Needs",
+        "de": "Unterstützungsbedarf",
+        "ua": "Потреба в підтримці"
+    },
+    "support_measures_label": {
+        "en": "Support Measures",
+        "de": "Unterstützungsmaßnahmen",
+        "ua": "Заходи підтримки"
+    },
+    "matrix_measure": {
+        "en": "Measure",
+        "de": "Maßnahme",
+        "ua": "Захід"
+    },
+    "matrix_yes": {
+        "en": "Yes",
+        "de": "Ja",
+        "ua": "Так"
+    },
+    "matrix_no": {
+        "en": "No",
+        "de": "Nein",
+        "ua": "Ні"
+    },
+    "support_language": {
+        "en": "Language Support",
+        "de": "Sprachförderung",
+        "ua": "Мовна підтримка"
+    },
+    "support_recognition": {
+        "en": "Recognition of Qualifications",
+        "de": "Anerkennung von Abschlüssen",
+        "ua": "Визнання кваліфікацій"
+    },
+    "support_career": {
+        "en": "Career Counseling",
+        "de": "Berufsberatung",
+        "ua": "Кар'єрне консультування"
+    },
+    "support_integration": {
+        "en": "Integration Support",
+        "de": "Integrationsunterstützung",
+        "ua": "Підтримка інтеграції"
+    },
+    "support_basic": {
+        "en": "Basic Support",
+        "de": "Grundunterstützung",
+        "ua": "Базова підтримка"
+    },
+    "support_other": {
+        "en": "Other Support",
+        "de": "Weitere Unterstützung",
+        "ua": "Інша підтримка"
+    },
+    "learning_label": {
+        "en": "Learning Preferences",
+        "de": "Lernpräferenzen",
+        "ua": "Переваги навчання"
+    },
+    "learn_online": {
+        "en": "Online",
+        "de": "Online",
+        "ua": "Онлайн"
+    },
+    "learn_inperson": {
+        "en": "In-person",
+        "de": "Präsenz",
+        "ua": "Очно"
+    },
+    "learn_hybrid": {
+        "en": "Hybrid",
+        "de": "Hybrid",
+        "ua": "Гібридно"
+    },
+    "interest_label": {
+        "en": "Interests",
+        "de": "Interessen",
+        "ua": "Інтереси"
+    },
+    "interest_language": {
+        "en": "Language",
+        "de": "Sprache",
+        "ua": "Мова"
+    },
+    "interest_training": {
+        "en": "Training",
+        "de": "Weiterbildung",
+        "ua": "Навчання"
+    },
+    "interest_coaching": {
+        "en": "Coaching",
+        "de": "Coaching",
+        "ua": "Коучинг"
+    },
+    "interest_job": {
+        "en": "Job",
+        "de": "Job",
+        "ua": "Робота"
+    },
+    "interest_childcare": {
+        "en": "Childcare",
+        "de": "Kinderbetreuung",
+        "ua": "Догляд за дітьми"
+    },
+    "other_qualifications_label": {
+        "en": "Other Qualifications",
+        "de": "Weitere Qualifikationen",
+        "ua": "Інші кваліфікації"
+    },
+    "qual_first_aid": {
+        "en": "First Aid",
+        "de": "Erste Hilfe",
+        "ua": "Перша допомога"
+    },
+    "qual_it_basics": {
+        "en": "IT Basics",
+        "de": "IT-Grundlagen",
+        "ua": "Основи ІТ"
+    },
+    "qual_hygiene": {
+        "en": "Hygiene",
+        "de": "Hygiene",
+        "ua": "Гігієна"
+    },
+    "qual_volunteering": {
+        "en": "Volunteering",
+        "de": "Ehrenamt",
+        "ua": "Волонтерство"
+    },
+    "book_a_coach_title": {
+        "en": "Book a Coach",
+        "de": "Coach buchen",
+        "ua": "Записатися до коуча"
+    },
+    "book_a_coach_intro1": {
+        "en": "Our coaches help you with career orientation, job applications, and integration in Germany.",
+        "de": "Unsere Coaches unterstützen Sie bei Berufsorientierung, Bewerbungen und Integration in Deutschland.",
+        "ua": "Наші коучі допоможуть вам з орієнтацією у професії, подачею заявок та інтеграцією в Німеччині."
+    },
+    "book_a_coach_intro2": {
+        "en": "Choose a coach and book a meeting slot that fits your schedule.",
+        "de": "Wählen Sie einen Coach und buchen Sie einen passenden Termin.",
+        "ua": "Оберіть коуча та забронюйте зручний для вас час."
+    },
+    "available_slots": {
+        "en": "Available Slots",
+        "de": "Verfügbare Termine",
+        "ua": "Доступні слоти"
+    },
+    "back_to_dashboard": {
+        "en": "Back to Dashboard",
+        "de": "Zurück zur Übersicht",
+        "ua": "Повернутися на головну"
+    },
+    "coach_city": {
+        "en": "City",
+        "de": "Stadt",
+        "ua": "Місто"
+    },
+    "coach_languages": {
+        "en": "Languages",
+        "de": "Sprachen",
+        "ua": "Мови"
+    },
+    "coach_description_anna": {
+        "en": "Specializes in career orientation and job application strategies.",
+        "de": "Spezialisiert auf Berufsorientierung und Bewerbungsstrategien.",
+        "ua": "Спеціалізується на орієнтації у професії та стратегіях подачі заявок."
+    },
+    "coach_description_omar": {
+        "en": "Experienced in supporting international professionals and documentation for job centers.",
+        "de": "Erfahren in der Unterstützung internationaler Fachkräfte und Dokumentation für Jobcenter.",
+        "ua": "Досвід підтримки міжнародних фахівців та оформлення документів для центрів зайнятості."
+    },
+    "coach_description_svitlana": {
+        "en": "Focus on integration, language support, and next steps for newcomers.",
+        "de": "Fokus auf Integration, Sprachförderung und nächste Schritte für Neuankömmlinge.",
+        "ua": "Зосереджена на інтеграції, мовній підтримці та наступних кроках для новоприбулих."
+    },
+    "coach_description_jonas": {
+        "en": "Helps with planning, documentation, and job center applications.",
+        "de": "Hilft bei Planung, Dokumentation und Jobcenter-Anträgen.",
+        "ua": "Допомагає з плануванням, документацією та заявками до центру зайнятості."
+    },
+    "meeting_types_in_person": {
+        "en": "in-person",
+        "de": "vor Ort",
+        "ua": "очно"
+    },
+    "meeting_types_online": {
+        "en": "online",
+        "de": "online",
+        "ua": "онлайн"
+    },
+    "coach_photo_alt": {
+        "en": "Coach photo of",
+        "de": "Coach-Foto von",
+        "ua": "Фото коуча"
+    },
+    "slot_city": {
+        "en": "City",
+        "de": "Stadt",
+        "ua": "Місто"
+    },
+    "slot_online": {
+        "en": "Online",
+        "de": "Online",
+        "ua": "Онлайн"
+    }
+}

@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block title %}Datenaufnahme-Formular{% endblock %}
+{% extends "base.html" %}
 {% block content %}
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
@@ -10,81 +9,74 @@
                         <button type="button" class="btn btn-warning btn-sm me-3" onclick="fillFormWithRandomData()">
                             <i class="fas fa-random me-1"></i> Generate Random Data
                         </button>
-                        <div class="d-flex align-items-center">
-                            <label for="lang-switcher" class="form-label me-2 mb-0">🌐</label>
-                            <select id="lang-switcher" class="form-select form-select-sm w-auto">
-                                <option value="de">Deutsch</option>
-                                <option value="en">English</option>
-                                <option value="uk">Українська</option>
-                            </select>
-                        </div>
+                        <!-- Removed language switcher here -->
                     </div>
                     <form method="POST" id="user-intake-form">
                         {{ form.hidden_tag() }}
-                        <h4 class="mb-3">{{ translations['first_name']['de'] }} &amp; {{ translations['last_name']['de']
-                            }} <small class="text-secondary">(Persönliche Angaben)</small></h4>
+                        <h4 class="mb-3">{{ trans('first_name') }} &amp; {{ trans('last_name') }} <small
+                                class="text-secondary">({{ trans('personal_info') }})</small></h4>
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label" data-i18n="first_name">{{ translations['first_name']['de']
+                                <label class="form-label" data-i18n="first_name">{{ trans('first_name')
                                     }}</label>
-                                {{ form.first_name(class="form-control", placeholder=translations['first_name']['de'])
+                                {{ form.first_name(class="form-control", placeholder=trans('first_name'))
                                 }}
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" data-i18n="last_name">{{ translations['last_name']['de']
+                                <label class="form-label" data-i18n="last_name">{{ trans('last_name')
                                     }}</label>
-                                {{ form.last_name(class="form-control", placeholder=translations['last_name']['de']) }}
+                                {{ form.last_name(class="form-control", placeholder=trans('last_name')) }}
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label" data-i18n="date_of_birth">{{
-                                    translations['date_of_birth']['de'] }}</label>
+                                    trans('date_of_birth') }}</label>
                                 {{ form.date_of_birth(class="form-control") }}
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label" data-i18n="gender">{{ translations['gender']['de'] }}</label>
+                                <label class="form-label" data-i18n="gender">{{ trans('gender') }}</label>
                                 <select name="gender" class="form-select" id="gender">
                                     <option value="" selected disabled hidden></option>
-                                    <option value="male" data-i18n="gender_male">{{ translations['gender_male']['de'] }}
+                                    <option value="male" data-i18n="gender_male">{{ trans('gender_male') }}
                                     </option>
                                     <option value="female" data-i18n="gender_female">{{
-                                        translations['gender_female']['de'] }}</option>
+                                        trans('gender_female') }}</option>
                                     <option value="diverse" data-i18n="gender_diverse">{{
-                                        translations['gender_diverse']['de'] }}</option>
+                                        trans('gender_diverse') }}</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label" data-i18n="nationality">{{ translations['nationality']['de']
+                                <label class="form-label" data-i18n="nationality">{{ trans('nationality')
                                     }}</label>
                                 <select name="nationality" class="form-select" id="nationality">
                                     <option value="" selected disabled hidden></option>
                                     <option value="ukrainian" data-i18n="nationality_ukrainian">{{
-                                        translations['nationality_ukrainian']['de'] }}</option>
+                                        trans('nationality_ukrainian') }}</option>
                                     <option value="german" data-i18n="nationality_german">{{
-                                        translations['nationality_german']['de'] }}</option>
+                                        trans('nationality_german') }}</option>
                                     <option value="polish" data-i18n="nationality_polish">{{
-                                        translations['nationality_polish']['de'] }}</option>
+                                        trans('nationality_polish') }}</option>
                                     <option value="turkish" data-i18n="nationality_turkish">{{
-                                        translations['nationality_turkish']['de'] }}</option>
+                                        trans('nationality_turkish') }}</option>
                                     <option value="arabic" data-i18n="nationality_arabic">{{
-                                        translations['nationality_arabic']['de'] }}</option>
+                                        trans('nationality_arabic') }}</option>
                                     <option value="afghan" data-i18n="nationality_afghan">{{
-                                        translations['nationality_afghan']['de'] }}</option>
+                                        trans('nationality_afghan') }}</option>
                                     <option value="russian" data-i18n="nationality_russian">{{
-                                        translations['nationality_russian']['de'] }}</option>
+                                        trans('nationality_russian') }}</option>
                                     <option value="kurdish" data-i18n="nationality_kurdish">{{
-                                        translations['nationality_kurdish']['de'] }}</option>
+                                        trans('nationality_kurdish') }}</option>
                                     <option value="somali" data-i18n="nationality_somali">{{
-                                        translations['nationality_somali']['de'] }}</option>
+                                        trans('nationality_somali') }}</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" data-i18n="since_in_germany">{{
-                                    translations['since_in_germany']['de'] }}</label>
+                                    trans('since_in_germany') }}</label>
                                 {{ form.since_in_germany(class="form-control") }}
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" data-i18n="residence_permit">{{
-                                    translations['residence_permit']['de'] }}</label>
+                                    trans('residence_permit') }}</label>
                                 <select name="residence_permit" class="form-select" id="residence_permit">
                                     <option value="" selected disabled hidden></option>
                                     <option value="aufenthaltserlaubnis">Aufenthaltserlaubnis</option>
@@ -98,49 +90,48 @@
                                 </select>
                             </div>
                             <div class="col-md-8">
-                                <label class="form-label" data-i18n="address">{{ translations['address']['de']
+                                <label class="form-label" data-i18n="address">{{ trans('address')
                                     }}</label>
                                 {{ form.address(class="form-control") }}
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label" data-i18n="postal_city">{{ translations['postal_city']['de']
+                                <label class="form-label" data-i18n="postal_city">{{ trans('postal_city')
                                     }}</label>
                                 {{ form.postal_city(class="form-control") }}
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" data-i18n="phone">{{ translations['phone']['de'] }}</label>
+                                <label class="form-label" data-i18n="phone">{{ trans('phone') }}</label>
                                 {{ form.phone(class="form-control") }}
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" data-i18n="email">{{ translations['email']['de'] }}</label>
+                                <label class="form-label" data-i18n="email">{{ trans('email') }}</label>
                                 {{ form.email(class="form-control") }}
                             </div>
                         </div>
                         <hr class="my-4">
                         <!-- Children & Childcare -->
-                        <h5 class="mb-3 mt-4" data-i18n="children_section">{{ translations['children_section']['de'] }}
-                        </h5>
+                        <h5 class="mb-3 mt-4" data-i18n="children_section">{{ trans('children_section') }}</h5>
                         <div id="children-section"></div>
                         <button type="button" class="btn btn-outline-secondary btn-sm mt-2 mb-3" id="add-child">+ Kind
                             hinzufügen</button>
                         <hr class="my-4">
                         <!-- Health Restrictions (Matrix Table) -->
-                        <h5 class="mb-3 mt-4" data-i18n="health_section">{{ translations['health_section']['de'] }}</h5>
+                        <h5 class="mb-3 mt-4" data-i18n="health_section">{{ trans('health_section') }}</h5>
                         <div class="table-responsive mb-3">
                             <table class="table table-bordered align-middle bg-white">
                                 <thead class="table-light">
                                     <tr>
                                         <th data-i18n="matrix_header_restriction">{{
-                                            translations['matrix_header_restriction']['de'] }}</th>
+                                            trans('matrix_header_restriction') }}</th>
                                         <th data-i18n="matrix_header_present">{{
-                                            translations['matrix_header_present']['de'] }}</th>
+                                            trans('matrix_header_present') }}</th>
                                         <th data-i18n="matrix_header_degree">{{
-                                            translations['matrix_header_degree']['de'] }}</th>
+                                            trans('matrix_header_degree') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td data-i18n="restriction_severe">{{ translations['restriction_severe']['de']
+                                        <td data-i18n="restriction_severe">{{ trans('restriction_severe')
                                             }}</td>
                                         <td><input type="checkbox" name="restriction_severe" class="form-check-input">
                                         </td>
@@ -149,14 +140,14 @@
                                     </tr>
                                     <tr>
                                         <td data-i18n="restriction_mobility">{{
-                                            translations['restriction_mobility']['de'] }}</td>
+                                            trans('restriction_mobility') }}</td>
                                         <td><input type="checkbox" name="restriction_mobility" class="form-check-input">
                                         </td>
                                         <td><input type="number" name="degree_mobility" class="form-control" min="0"
                                                 max="100"></td>
                                     </tr>
                                     <tr>
-                                        <td data-i18n="restriction_visual">{{ translations['restriction_visual']['de']
+                                        <td data-i18n="restriction_visual">{{ trans('restriction_visual')
                                             }}</td>
                                         <td><input type="checkbox" name="restriction_visual" class="form-check-input">
                                         </td>
@@ -164,7 +155,7 @@
                                                 max="100"></td>
                                     </tr>
                                     <tr>
-                                        <td data-i18n="restriction_hearing">{{ translations['restriction_hearing']['de']
+                                        <td data-i18n="restriction_hearing">{{ trans('restriction_hearing')
                                             }}</td>
                                         <td><input type="checkbox" name="restriction_hearing" class="form-check-input">
                                         </td>
@@ -172,7 +163,7 @@
                                                 max="100"></td>
                                     </tr>
                                     <tr>
-                                        <td data-i18n="restriction_chronic">{{ translations['restriction_chronic']['de']
+                                        <td data-i18n="restriction_chronic">{{ trans('restriction_chronic')
                                             }}</td>
                                         <td><input type="checkbox" name="restriction_chronic" class="form-check-input">
                                         </td>
@@ -180,7 +171,7 @@
                                                 max="100"></td>
                                     </tr>
                                     <tr>
-                                        <td data-i18n="restriction_other">{{ translations['restriction_other']['de'] }}
+                                        <td data-i18n="restriction_other">{{ trans('restriction_other') }}
                                         </td>
                                         <td><input type="checkbox" name="restriction_other" class="form-check-input">
                                         </td>
@@ -192,8 +183,7 @@
                         </div>
                         <!-- Language & Education -->
                         <hr class="my-4">
-                        <h5 class="mb-3 mt-4" data-i18n="language_section">{{ translations['language_section']['de'] }}
-                        </h5>
+                        <h5 class="mb-3 mt-4" data-i18n="language_section">{{ trans('language_section') }}</h5>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label" data-i18n="mother_tongue">Muttersprache</label>
@@ -213,193 +203,193 @@
                         </div>
                         <div class="mt-3 mb-2">
                             <label class="form-label" data-i18n="foreign_languages">{{
-                                translations['foreign_languages']['de'] }}</label>
+                                trans('foreign_languages') }}</label>
                             <div id="foreign-languages-section"></div>
                             <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
                                 id="add-foreign-language">+ <span data-i18n="foreign_language">{{
-                                    translations['foreign_language']['de'] }}</span></button>
+                                    trans('foreign_language') }}</span></button>
                         </div>
                         <div class="mt-3 mb-2">
                             <label class="form-label" data-i18n="school_diplomas_label">{{
-                                translations['school_diplomas_label']['de'] }}</label>
+                                trans('school_diplomas_label') }}</label>
                             <div id="school-diplomas-section"></div>
                             <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
                                 id="add-school-diploma">+ <span data-i18n="school_diploma_label">{{
-                                    translations['school_diploma_label']['de'] }}</span></button>
+                                    trans('school_diploma_label') }}</span></button>
                         </div>
                         <div class="mt-3 mb-2">
                             <label class="form-label" data-i18n="university_degrees_label">{{
-                                translations['university_degrees_label']['de'] }}</label>
+                                trans('university_degrees_label') }}</label>
                             <div id="university-degrees-section"></div>
                             <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
                                 id="add-university-degree">+ <span data-i18n="university_degree_label">{{
-                                    translations['university_degree_label']['de'] }}</span></button>
+                                    trans('university_degree_label') }}</span></button>
                         </div>
                         <!-- Work Experience -->
                         <hr class="my-4">
                         <h5 class="mb-3 mt-4" data-i18n="work_experience_label">{{
-                            translations['work_experience_label']['de'] }}</h5>
+                            trans('work_experience_label') }}</h5>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="previous_professions_label">{{
-                                translations['previous_professions_label']['de'] }}</label>
+                                trans('previous_professions_label') }}</label>
                             <div id="work-experience-section"></div>
                             <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
                                 id="add-work-experience">+ <span data-i18n="work_experience_label">{{
-                                    translations['work_experience_label']['de'] }}</span></button>
+                                    trans('work_experience_label') }}</span></button>
                         </div>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="drivers_licenses_label">{{
-                                translations['drivers_licenses_label']['de'] }}</label>
+                                trans('drivers_licenses_label') }}</label>
                             <div id="drivers-licenses-section"></div>
                             <button type="button" class="btn btn-outline-secondary btn-sm mt-2"
                                 id="add-drivers-license">+ <span data-i18n="drivers_licenses_label">{{
-                                    translations['drivers_licenses_label']['de'] }}</span></button>
+                                    trans('drivers_licenses_label') }}</span></button>
                         </div>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="desired_profession_label">{{
-                                translations['desired_profession_label']['de'] }}</label>
+                                trans('desired_profession_label') }}</label>
                             <div class="row g-2">
                                 <div class="col-12">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="nurse" id="prof_nurse">
                                         <label class="form-check-label" for="prof_nurse" data-i18n="prof_nurse">{{
-                                            translations['prof_nurse']['de'] }}</label>
+                                            trans('prof_nurse') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="it" id="prof_it">
                                         <label class="form-check-label" for="prof_it" data-i18n="prof_it">{{
-                                            translations['prof_it']['de'] }}</label>
+                                            trans('prof_it') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="teacher" id="prof_teacher">
                                         <label class="form-check-label" for="prof_teacher" data-i18n="prof_teacher">{{
-                                            translations['prof_teacher']['de'] }}</label>
+                                            trans('prof_teacher') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="craftsman" id="prof_craftsman">
                                         <label class="form-check-label" for="prof_craftsman"
-                                            data-i18n="prof_craftsman">{{ translations['prof_craftsman']['de']
+                                            data-i18n="prof_craftsman">{{ trans('prof_craftsman')
                                             }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="sales" id="prof_sales">
                                         <label class="form-check-label" for="prof_sales" data-i18n="prof_sales">{{
-                                            translations['prof_sales']['de'] }}</label>
+                                            trans('prof_sales') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="engineer" id="prof_engineer">
                                         <label class="form-check-label" for="prof_engineer" data-i18n="prof_engineer">{{
-                                            translations['prof_engineer']['de'] }}</label>
+                                            trans('prof_engineer') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="chef" id="prof_chef">
                                         <label class="form-check-label" for="prof_chef" data-i18n="prof_chef">{{
-                                            translations['prof_chef']['de'] }}</label>
+                                            trans('prof_chef') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="other" id="prof_other">
                                         <label class="form-check-label" for="prof_other" data-i18n="prof_other">{{
-                                            translations['prof_other']['de'] }}</label>
+                                            trans('prof_other') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="desired_profession"
                                             value="none" id="prof_none">
                                         <label class="form-check-label" for="prof_none" data-i18n="prof_none">{{
-                                            translations['prof_none']['de'] }}</label>
+                                            trans('prof_none') }}</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="desired_working_hours_label">{{
-                                translations['desired_working_hours_label']['de'] }}</label>
+                                trans('desired_working_hours_label') }}</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="desired_working_hours"
                                     value="full" id="work_full">
                                 <label class="form-check-label" for="work_full" data-i18n="work_full">{{
-                                    translations['work_full']['de'] }}</label>
+                                    trans('work_full') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="desired_working_hours"
                                     value="part" id="work_part">
                                 <label class="form-check-label" for="work_part" data-i18n="work_part">{{
-                                    translations['work_part']['de'] }}</label>
+                                    trans('work_part') }}</label>
                             </div>
                         </div>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="relocation_label">{{
-                                translations['relocation_label']['de'] }}</label>
+                                trans('relocation_label') }}</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="willing_to_relocate" value="yes"
                                     id="relocate_yes">
                                 <label class="form-check-label" for="relocate_yes" data-i18n="yes">{{
-                                    translations['yes']['de'] }}</label>
+                                    trans('yes') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="willing_to_relocate" value="no"
                                     id="relocate_no">
                                 <label class="form-check-label" for="relocate_no" data-i18n="no">{{
-                                    translations['no']['de'] }}</label>
+                                    trans('no') }}</label>
                             </div>
                         </div>
                         <!-- Support Needs & Learning Preferences (Stub, can be expanded) -->
                         <hr class="my-4">
                         <h5 class="mb-3 mt-4" data-i18n="support_section_label">{{
-                            translations['support_section_label']['de'] }}
+                            trans('support_section_label') }}
                         </h5>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="support_measures_label">{{
-                                translations['support_measures_label']['de'] }}</label>
+                                trans('support_measures_label') }}</label>
                             <div class="table-responsive mb-3">
                                 <table class="table table-bordered align-middle bg-white">
                                     <thead class="table-light">
                                         <tr>
-                                            <th data-i18n="matrix_measure">{{ translations['matrix_measure']['de'] }}
+                                            <th data-i18n="matrix_measure">{{ trans('matrix_measure') }}
                                             </th>
-                                            <th data-i18n="matrix_yes">{{ translations['matrix_yes']['de'] }}</th>
-                                            <th data-i18n="matrix_no">{{ translations['matrix_no']['de'] }}</th>
+                                            <th data-i18n="matrix_yes">{{ trans('matrix_yes') }}</th>
+                                            <th data-i18n="matrix_no">{{ trans('matrix_no') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td data-i18n="support_language">{{ translations['support_language']['de']
+                                            <td data-i18n="support_language">{{ trans('support_language')
                                                 }}</td>
                                             <td><input type="radio" name="support_language" value="yes"></td>
                                             <td><input type="radio" name="support_language" value="no"></td>
                                         </tr>
                                         <tr>
                                             <td data-i18n="support_recognition">{{
-                                                translations['support_recognition']['de'] }}</td>
+                                                trans('support_recognition') }}</td>
                                             <td><input type="radio" name="support_recognition" value="yes"></td>
                                             <td><input type="radio" name="support_recognition" value="no"></td>
                                         </tr>
                                         <tr>
-                                            <td data-i18n="support_career">{{ translations['support_career']['de'] }}
+                                            <td data-i18n="support_career">{{ trans('support_career') }}
                                             </td>
                                             <td><input type="radio" name="support_career" value="yes"></td>
                                             <td><input type="radio" name="support_career" value="no"></td>
                                         </tr>
                                         <tr>
                                             <td data-i18n="support_integration">{{
-                                                translations['support_integration']['de'] }}</td>
+                                                trans('support_integration') }}</td>
                                             <td><input type="radio" name="support_integration" value="yes"></td>
                                             <td><input type="radio" name="support_integration" value="no"></td>
                                         </tr>
                                         <tr>
-                                            <td data-i18n="support_basic">{{ translations['support_basic']['de'] }}</td>
+                                            <td data-i18n="support_basic">{{ trans('support_basic') }}</td>
                                             <td><input type="radio" name="support_basic" value="yes"></td>
                                             <td><input type="radio" name="support_basic" value="no"></td>
                                         </tr>
                                         <tr>
-                                            <td data-i18n="support_other">{{ translations['support_other']['de'] }}</td>
+                                            <td data-i18n="support_other">{{ trans('support_other') }}</td>
                                             <td><input type="radio" name="support_other" value="yes"></td>
                                             <td><input type="radio" name="support_other" value="no"></td>
                                         </tr>
@@ -408,93 +398,93 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label" data-i18n="learning_label">{{ translations['learning_label']['de']
+                            <label class="form-label" data-i18n="learning_label">{{ trans('learning_label')
                                 }}</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="preferred_learning" value="online"
                                     id="learn_online">
                                 <label class="form-check-label" for="learn_online" data-i18n="learn_online">{{
-                                    translations['learn_online']['de'] }}</label>
+                                    trans('learn_online') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="preferred_learning"
                                     value="inperson" id="learn_inperson">
                                 <label class="form-check-label" for="learn_inperson" data-i18n="learn_inperson">{{
-                                    translations['learn_inperson']['de'] }}</label>
+                                    trans('learn_inperson') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="preferred_learning" value="hybrid"
                                     id="learn_hybrid">
                                 <label class="form-check-label" for="learn_hybrid" data-i18n="learn_hybrid">{{
-                                    translations['learn_hybrid']['de'] }}</label>
+                                    trans('learn_hybrid') }}</label>
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label" data-i18n="interest_label">{{ translations['interest_label']['de']
+                            <label class="form-label" data-i18n="interest_label">{{ trans('interest_label')
                                 }}</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="interest" value="language"
                                     id="interest_language">
                                 <label class="form-check-label" for="interest_language" data-i18n="interest_language">{{
-                                    translations['interest_language']['de'] }}</label>
+                                    trans('interest_language') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="interest" value="training"
                                     id="interest_training">
                                 <label class="form-check-label" for="interest_training" data-i18n="interest_training">{{
-                                    translations['interest_training']['de'] }}</label>
+                                    trans('interest_training') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="interest" value="coaching"
                                     id="interest_coaching">
                                 <label class="form-check-label" for="interest_coaching" data-i18n="interest_coaching">{{
-                                    translations['interest_coaching']['de'] }}</label>
+                                    trans('interest_coaching') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="interest" value="job"
                                     id="interest_job">
                                 <label class="form-check-label" for="interest_job" data-i18n="interest_job">{{
-                                    translations['interest_job']['de'] }}</label>
+                                    trans('interest_job') }}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="interest" value="childcare"
                                     id="interest_childcare">
                                 <label class="form-check-label" for="interest_childcare"
-                                    data-i18n="interest_childcare">{{ translations['interest_childcare']['de']
+                                    data-i18n="interest_childcare">{{ trans('interest_childcare')
                                     }}</label>
                             </div>
                         </div>
                         <div class="mb-2">
                             <label class="form-label" data-i18n="other_qualifications_label">{{
-                                translations['other_qualifications_label']['de'] }}</label>
+                                trans('other_qualifications_label') }}</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="other_qualifications"
                                     value="first_aid" id="qual_first_aid">
                                 <label class="form-check-label" for="qual_first_aid" data-i18n="qual_first_aid">{{
-                                    translations['qual_first_aid']['de'] }}</label>
+                                    trans('qual_first_aid') }}</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="other_qualifications"
                                     value="it_basics" id="qual_it_basics">
                                 <label class="form-check-label" for="qual_it_basics" data-i18n="qual_it_basics">{{
-                                    translations['qual_it_basics']['de'] }}</label>
+                                    trans('qual_it_basics') }}</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="other_qualifications"
                                     value="hygiene" id="qual_hygiene">
                                 <label class="form-check-label" for="qual_hygiene" data-i18n="qual_hygiene">{{
-                                    translations['qual_hygiene']['de'] }}</label>
+                                    trans('qual_hygiene') }}</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="other_qualifications"
                                     value="volunteering" id="qual_volunteering">
                                 <label class="form-check-label" for="qual_volunteering" data-i18n="qual_volunteering">{{
-                                    translations['qual_volunteering']['de'] }}</label>
+                                    trans('qual_volunteering') }}</label>
                             </div>
                         </div>
                         <div class="d-grid mt-4">
                             <button type="submit" class="btn btn-primary btn-lg" id="submit-btn" data-i18n="submit">{{
-                                translations['submit']['de'] }}</button>
+                                trans('submit') }}</button>
                         </div>
                     </form>
                 </div>
@@ -553,7 +543,7 @@
         childCount++;
         const row = document.createElement('div');
         row.className = 'row g-2 align-items-end mb-2';
-        row.innerHTML = `<div class=\"col-4\"><label class=\"form-label\" data-i18n=\"child_age\">${translations['child_age'][currentLang]}</label><select name=\"children-${childCount}-age\" class=\"form-select\"><option value=\"\" selected disabled hidden></option>${Array.from({ length: 18 }, (_, i) => `<option value=\"${i + 1}\">${i + 1}</option>`).join('')}</select></div><div class=\"col-5\"><label class=\"form-label\" data-i18n=\"childcare_needed\">${translations['childcare_needed'][currentLang]}</label><div><input type=\"radio\" name=\"children-${childCount}-childcare_needed\" value=\"yes\" id=\"childcare_yes_${childCount}\"><label for=\"childcare_yes_${childCount}\" data-i18n=\"yes\">${translations['yes'][currentLang]}</label><input type=\"radio\" name=\"children-${childCount}-childcare_needed\" value=\"no\" id=\"childcare_no_${childCount}\"><label for=\"childcare_no_${childCount}\" data-i18n=\"no\">${translations['no'][currentLang]}</label></div></div><div class=\"col-3\"><button type=\"button\" class=\"btn btn-danger btn-sm remove-child\">&times;</button></div>`;
+        row.innerHTML = `< div class=\"col-4\"><label class=\"form-label\" data-i18n=\"child_age\">${translations['child_age'][currentLang]}</label><select name=\"children-${childCount}-age\" class=\"form-select\"><option value=\"\" selected disabled hidden></option>${Array.from({ length: 18 }, (_, i) => `<option value=\"${i + 1}\">${i + 1}</option>`).join('')}</select></div><div class=\"col-5\"><label class=\"form-label\" data-i18n=\"childcare_needed\">${translations['childcare_needed'][currentLang]}</label><div><input type=\"radio\" name=\"children-${childCount}-childcare_needed\" value=\"yes\" id=\"childcare_yes_${childCount}\"><label for=\"childcare_yes_${childCount}\" data-i18n=\"yes\">${translations['yes'][currentLang]}</label><input type=\"radio\" name=\"children-${childCount}-childcare_needed\" value=\"no\" id=\"childcare_no_${childCount}\"><label for=\"childcare_no_${childCount}\" data-i18n=\"no\">${translations['no'][currentLang]}</label></div></div><div class=\"col-3\"><button type=\"button\" class=\"btn btn-danger btn-sm remove-child\">&times;</button></div>`;
         childrenSection.appendChild(row);
         row.querySelector('.remove-child').onclick = () => {
             row.remove();

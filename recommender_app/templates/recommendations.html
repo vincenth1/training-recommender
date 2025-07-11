@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Course Recommendations - {{ super() }}{% endblock %}
+{% block title %}{{ trans('course_recommendations_title') }} - {{ super() }}{% endblock %}
 
 {% block content %}
 <div class="mb-5 py-4"
@@ -9,15 +9,14 @@
             <div class="col-lg-8">
                 <h1 class="mb-2">
                     <i class="fas fa-star text-primary me-2"></i>
-                    Personalized Course Recommendations
+                    {{ trans('personalized_course_recommendations') }}
                 </h1>
-                <p class="text-secondary mb-0">Courses are ranked based on your profile match score and industry demand
-                </p>
+                <p class="text-secondary mb-0">{{ trans('courses_ranked_by_match') }}</p>
             </div>
             <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
                 <button class="btn btn-primary">
                     <i class="fas fa-sliders-h me-2"></i>
-                    Refine Matches
+                    {{ trans('refine_matches') }}
                 </button>
             </div>
         </div>
@@ -38,12 +37,12 @@
                         <h5 class="card-title mb-2">{{ course.title }}</h5>
                         <p class="text-secondary small mb-0">
                             <i class="fas fa-clock me-1"></i>
-                            Duration: {{ course.duration if course.duration else "Flexible" }}
+                            {{ trans('duration') }}: {{ course.duration if course.duration else trans('flexible') }}
                         </p>
                     </div>
                     <div class="text-end">
                         <div class="display-6 fw-bold text-primary">{{ course.score }}</div>
-                        <div class="text-secondary small">Match Score</div>
+                        <div class="text-secondary small">{{ trans('match_score') }}</div>
                     </div>
                 </div>
 
@@ -52,7 +51,8 @@
                     <span class="badge bg-light text-secondary">{{ skill }}</span>
                     {% endfor %}
                     {% if course.get('skills', [])|length > 3 %}
-                    <span class="badge bg-light text-secondary">+{{ course.get('skills', [])|length - 3 }} more</span>
+                    <span class="badge bg-light text-secondary">+{{ course.get('skills', [])|length - 3 }} {{
+                        trans('more') }}</span>
                     {% endif %}
                 </div>
 
@@ -60,13 +60,13 @@
 
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="{{ url_for('course_detail', course_id=course.id) }}" class="btn btn-outline-primary">
-                        View Details
+                        {{ trans('view_details') }}
                         <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                     <div class="text-end">
                         <div class="text-success small">
                             <i class="fas fa-user-graduate me-1"></i>
-                            {{ course.enrolled if course.enrolled else "0" }} enrolled
+                            {{ course.enrolled if course.enrolled else "0" }} {{ trans('enrolled') }}
                         </div>
                     </div>
                 </div>
@@ -80,12 +80,11 @@
                 <div class="mb-4">
                     <i class="fas fa-clipboard-list fa-3x text-secondary"></i>
                 </div>
-                <h4 class="mb-3">No Recommendations Available</h4>
-                <p class="text-secondary mb-4">We need more information about your skills and interests to provide
-                    personalized recommendations.</p>
+                <h4 class="mb-3">{{ trans('no_recommendations') }}</h4>
+                <p class="text-secondary mb-4">{{ trans('need_more_info') }}</p>
                 <button class="btn btn-primary">
                     <i class="fas fa-user-edit me-2"></i>
-                    Complete Your Profile
+                    {{ trans('complete_your_profile') }}
                 </button>
             </div>
         </div>
@@ -97,7 +96,7 @@
 <div class="text-center mt-5">
     <button class="btn btn-outline-primary">
         <i class="fas fa-sync-alt me-2"></i>
-        Load More Recommendations
+        {{ trans('load_more_recommendations') }}
     </button>
 </div>
 {% endif %}

@@ -10,7 +10,7 @@
             </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/recommendations" class="text-decoration-none">Recommendations</a>
+            <a href="/recommendations" class="text-decoration-none">{{ trans('course_recommendations_title') }}</a>
         </li>
         <li class="breadcrumb-item active">{{ course.title }}</li>
     </ol>
@@ -27,32 +27,33 @@
                     </span>
                     <span class="badge bg-success-light text-success">
                         <i class="fas fa-check-circle me-1"></i>
-                        Verified Course
+                        {{ trans('verified_course') }}
                     </span>
                 </div>
                 <h1 class="mb-3">{{ course.title }}</h1>
                 <div class="d-flex flex-wrap gap-4">
                     <div class="text-secondary">
                         <i class="fas fa-clock me-2"></i>
-                        Duration: {{ course.duration if course.duration else "Flexible" }}
+                        {{ trans('duration') }}: {{ course.duration if course.duration else trans('flexible') }}
                     </div>
                     <div class="text-secondary">
                         <i class="fas fa-users me-2"></i>
-                        {{ course.enrolled if course.enrolled else "0" }} students enrolled
+                        {{ course.enrolled if course.enrolled else "0" }} {{ trans('students_enrolled') }}
                     </div>
                     <div class="text-secondary">
                         <i class="fas fa-calendar me-2"></i>
-                        Next intake: {{ course.next_intake if course.next_intake else "Rolling admissions" }}
+                        {{ trans('next_intake') }}: {{ course.next_intake if course.next_intake else
+                        trans('rolling_admissions') }}
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
                 <div class="d-flex flex-column align-items-end">
                     <div class="display-4 fw-bold text-primary mb-2">{{ course.score }}</div>
-                    <p class="text-secondary mb-3">Match Score</p>
+                    <p class="text-secondary mb-3">{{ trans('match_score') }}</p>
                     <button class="btn btn-primary">
                         <i class="fas fa-paper-plane me-2"></i>
-                        Apply Now
+                        {{ trans('apply_now') }}
                     </button>
                 </div>
             </div>
@@ -71,11 +72,12 @@
                             <i class="fas fa-school text-primary fa-lg"></i>
                         </div>
                         <div>
-                            <h4 class="mb-1">Training Providers</h4>
-                            <p class="text-secondary mb-0">Choose your preferred training provider</p>
+                            <h4 class="mb-1">{{ trans('training_providers') }}</h4>
+                            <p class="text-secondary mb-0">{{ trans('choose_training_provider') }}</p>
                         </div>
                     </div>
-                    <span class="badge bg-primary">{{ providers|length if providers else 0 }} Available</span>
+                    <span class="badge bg-primary">{{ providers|length if providers else 0 }} {{ trans('available')
+                        }}</span>
                 </div>
             </div>
             <div class="card-body p-4">
@@ -105,7 +107,7 @@
                                     </span>
                                     <span class="text-secondary small">
                                         <i class="fas fa-users me-1"></i>
-                                        Capacity: {{ provider.capacity }}
+                                        {{ trans('capacity') }}: {{ provider.capacity }}
                                     </span>
                                     <span class="text-secondary small">
                                         <i class="fas fa-euro-sign me-1"></i>
@@ -122,7 +124,7 @@
                             <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                 <button class="btn btn-primary">
                                     <i class="fas fa-sign-in-alt me-2"></i>
-                                    Enroll Now
+                                    {{ trans('enroll_now') }}
                                 </button>
                             </div>
                         </div>
@@ -134,8 +136,8 @@
                     <div class="mb-4">
                         <i class="fas fa-search fa-3x text-secondary"></i>
                     </div>
-                    <h5 class="mb-3">No Providers Available</h5>
-                    <p class="text-secondary mb-0">We're working on adding training providers for this course.</p>
+                    <h5 class="mb-3">{{ trans('no_providers_available') }}</h5>
+                    <p class="text-secondary mb-0">{{ trans('adding_providers') }}</p>
                 </div>
                 {% endif %}
             </div>
@@ -152,11 +154,11 @@
                             <i class="fas fa-briefcase text-success fa-lg"></i>
                         </div>
                         <div>
-                            <h4 class="mb-1">Job Opportunities</h4>
-                            <p class="text-secondary mb-0">Related positions in {{ course.field }}</p>
+                            <h4 class="mb-1">{{ trans('job_opportunities') }}</h4>
+                            <p class="text-secondary mb-0">{{ trans('related_positions_in') }} {{ course.field }}</p>
                         </div>
                     </div>
-                    <span class="badge bg-success">{{ jobs|length if jobs else 0 }} Jobs</span>
+                    <span class="badge bg-success">{{ jobs|length if jobs else 0 }} {{ trans('jobs') }}</span>
                 </div>
             </div>
             <div class="card-body p-4">
@@ -185,16 +187,16 @@
                             </div>
                             <div class="me-3">
                                 <i class="fas fa-map-marker-alt me-1"></i>
-                                {{ job.location if job.location else "Remote" }}
+                                {{ job.location if job.location else trans('remote') }}
                             </div>
                             <div>
                                 <i class="fas fa-clock me-1"></i>
-                                {{ job.type if job.type else "Full-time" }}
+                                {{ job.type if job.type else trans('full_time') }}
                             </div>
                         </div>
                         <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#jobModal{{ loop.index }}">
-                            <i class="fas fa-eye me-1"></i> View Details
+                            <i class="fas fa-eye me-1"></i> {{ trans('view_details') }}
                         </button>
                     </div>
                     {% set _ = job_modals.append({
@@ -203,8 +205,8 @@
                     'title': job.title,
                     'company': job.company,
                     'status': job.status,
-                    'location': job.location if job.location else 'Remote',
-                    'type': job.type if job.type else 'Full-time'
+                    'location': job.location if job.location else trans('remote'),
+                    'type': job.type if job.type else trans('full_time')
                     }) %}
                     {% endfor %}
                 </div>
@@ -213,8 +215,8 @@
                     <div class="mb-4">
                         <i class="fas fa-briefcase fa-3x text-secondary"></i>
                     </div>
-                    <h5 class="mb-3">No Jobs Available</h5>
-                    <p class="text-secondary mb-0">We're working on adding job opportunities in this field.</p>
+                    <h5 class="mb-3">{{ trans('no_jobs_available') }}</h5>
+                    <p class="text-secondary mb-0">{{ trans('adding_jobs') }}</p>
                 </div>
                 {% endif %}
             </div>
@@ -229,25 +231,24 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="{{ modal.label }}">{{ modal.title }} at {{ modal.company }}
+                <h5 class="modal-title" id="{{ modal.label }}">{{ modal.title }} {{ trans('at') }} {{ modal.company }}
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <ul class="list-unstyled mb-3">
-                    <li><strong>Status:</strong> {{ modal.status }}</li>
-                    <li><strong>Location:</strong> {{ modal.location }}</li>
-                    <li><strong>Type:</strong> {{ modal.type }}</li>
+                    <li><strong>{{ trans('status') }}:</strong> {{ modal.status }}</li>
+                    <li><strong>{{ trans('location') }}:</strong> {{ modal.location }}</li>
+                    <li><strong>{{ trans('type') }}:</strong> {{ modal.type }}</li>
                 </ul>
-                <p class="text-secondary">More job details and application instructions can go here.</p>
+                <p class="text-secondary">{{ trans('more_job_details') }}</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <span class="d-inline-block" data-bs-toggle="tooltip"
-                    title="Please complete a training course to be able to apply.">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ trans('close') }}</button>
+                <span class="d-inline-block" data-bs-toggle="tooltip" title="{{ trans('complete_training_to_apply') }}">
                     <button type="button" class="btn btn-primary" disabled style="pointer-events: none;">
                         <i class="fas fa-lock me-1"></i>
-                        Apply Now
+                        {{ trans('apply_now') }}
                     </button>
                 </span>
             </div>

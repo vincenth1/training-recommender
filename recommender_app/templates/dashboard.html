@@ -3,17 +3,16 @@
 
 {% block content %}
 <div class="hero-section mb-5 text-center py-5"
-    style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface-color) 100%);">
+    style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface-color) 100%); position: relative;">
     <div class="container">
+        <!-- Removed language selector buttons from hero section -->
         <h1 class="display-4 fw-bold mb-4"
             style="background: linear-gradient(to right, var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            Discover Your Career Path
+            {{ trans('discover_your_career_path') }}
         </h1>
-        <p class="lead text-secondary mb-4">Our AI-powered platform matches your skills with the perfect training
-            opportunities and career paths.</p>
-        <a href="/user-form" class="btn btn-primary btn-lg shadow-sm">
-            Get Personalized Recommendations
-            <i class="fas fa-arrow-right ms-2"></i>
+        <p class="lead text-secondary mb-4">{{ trans('ai_platform_intro') }}</p>
+        <a href="/user-form" class="btn btn-primary btn-lg">
+            <i class="fas fa-arrow-right me-2"></i>{{ trans('get_personalized_recommendations') }}
         </a>
     </div>
 </div>
@@ -24,11 +23,11 @@
             <div class="process-container">
                 <div class="process-step">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-robot"></i>
-                            <h6 class="mt-3 mb-2">AI-Powered Matching</h6>
-                            <p class="text-secondary small mb-0">Get matched with the perfect courses and job
-                                fields.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-edit fa-2x mb-2 text-primary" title="Fill Out Form"
+                                aria-label="Fill Out Form"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('fill_out_form') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('provide_background_interests') }}</p>
                         </div>
                     </div>
                 </div>
@@ -37,11 +36,11 @@
                 </div>
                 <div class="process-step">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-certificate"></i>
-                            <h6 class="mt-3 mb-2">Certified Training</h6>
-                            <p class="text-secondary small mb-0">Enroll and earn your certificate from a top
-                                provider.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-chalkboard-teacher fa-2x mb-2 text-success" title="Book a Coach"
+                                aria-label="Book a Coach"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('book_a_coach') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('schedule_session_guidance') }}</p>
                         </div>
                     </div>
                 </div>
@@ -50,18 +49,18 @@
                 </div>
                 <div class="process-step">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-handshake"></i>
-                            <h6 class="mt-3 mb-2">Guaranteed Job Placement</h6>
-                            <p class="text-secondary small mb-0">Step directly into your new career upon
-                                completion.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-graduation-cap fa-2x mb-2 text-info" title="Enroll in Course"
+                                aria-label="Enroll in Course"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('enroll_in_course') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('start_training_new_career') }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-3">
                 <button id="show-detailed-view" class="btn btn-sm btn-outline-primary">
-                    <i class="fas fa-plus-circle me-1"></i> Show Detailed View
+                    <i class="fas fa-plus-circle me-1"></i> {{ trans('show_detailed_view') }}
                 </button>
             </div>
         </div>
@@ -70,96 +69,95 @@
             <div class="process-container process-container-detailed">
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-clipboard-list"></i>
-                            <h6 class="mt-3 mb-2">Data Collection</h6>
-                            <p class="text-secondary small mb-0">Fill out the digital form (language, education,
-                                experience, mobility, care, etc.).<br><b>Goal:</b> Basis for matching and counseling.
-                            </p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-clipboard-list fa-2x mb-2 text-primary" title="Data Collection"
+                                aria-label="Data Collection"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('data_collection') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('data_collection_desc')|safe }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h6 class="mt-3 mb-2">Schedule Coaching</h6>
-                            <p class="text-secondary small mb-0">Counselor arranges a personal or phone
-                                conversation.<br><b>Goal:</b> Career orientation and clarify interests.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-calendar-check fa-2x mb-2 text-success" title="Schedule Coaching"
+                                aria-label="Schedule Coaching"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('schedule_coaching') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('schedule_coaching_desc')|safe }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-layer-group"></i>
-                            <h6 class="mt-3 mb-2">Select 2–3 Fields</h6>
-                            <p class="text-secondary small mb-0">Relevant career fields suggested based on your profile
-                                and labor market demand.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-layer-group fa-2x mb-2 text-warning" title="Select 2–3 Fields"
+                                aria-label="Select 2–3 Fields"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('select_fields') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('select_fields_desc') }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-file-signature"></i>
-                            <h6 class="mt-3 mb-2">Counseling & Protocol</h6>
-                            <p class="text-secondary small mb-0">Session documents target job, qualifications, offers,
-                                and funding eligibility. Forms basis for Jobcenter application.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-file-signature fa-2x mb-2 text-info" title="Counseling & Protocol"
+                                aria-label="Counseling & Protocol"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('counseling_protocol') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('counseling_protocol_desc') }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-paper-plane"></i>
-                            <h6 class="mt-3 mb-2">Application & Approval</h6>
-                            <p class="text-secondary small mb-0">After Jobcenter approval: assignment to qualification,
-                                provider notified, participation begins.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-paper-plane fa-2x mb-2 text-secondary" title="Application & Approval"
+                                aria-label="Application & Approval"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('application_approval') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('application_approval_desc') }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-certificate"></i>
-                            <h6 class="mt-3 mb-2">Qualification & Certificate</h6>
-                            <p class="text-secondary small mb-0">Attend the course, receive a certificate. Info sent to
-                                placement system.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-certificate fa-2x mb-2 text-warning" title="Qualification & Certificate"
+                                aria-label="Qualification & Certificate"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('qualification_certificate') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('qualification_certificate_desc') }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-briefcase"></i>
-                            <h6 class="mt-3 mb-2">Matching with Companies</h6>
-                            <p class="text-secondary small mb-0">System matches graduates with jobs; employers notified
-                                in advance.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-briefcase fa-2x mb-2 text-primary" title="Matching with Companies"
+                                aria-label="Matching with Companies"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('matching_companies') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('matching_companies_desc') }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="process-arrow-detailed"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step-detailed">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <i class="fas fa-handshake"></i>
-                            <h6 class="mt-3 mb-2">Accompanied Integration</h6>
-                            <p class="text-secondary small mb-0">Application, interviews, trial work, and ongoing
-                                coaching for sustainable integration.</p>
+                        <div class="card-body text-center">
+                            <i class="fas fa-handshake fa-2x mb-2 text-success" title="Accompanied Integration"
+                                aria-label="Accompanied Integration"></i>
+                            <h6 class="mt-3 mb-2">{{ trans('accompanied_integration') }}</h6>
+                            <p class="text-secondary small mb-0">{{ trans('accompanied_integration_desc') }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-3">
                 <button id="hide-detailed-view" class="btn btn-sm btn-outline-primary">
-                    <i class="fas fa-minus-circle me-1"></i> Hide Detailed View
+                    <i class="fas fa-minus-circle me-1"></i> {{ trans('hide_detailed_view') }}
                 </button>
             </div>
         </div>
@@ -174,8 +172,8 @@
                     <i class="fas fa-graduation-cap fa-2x"></i>
                 </div>
                 <div>
-                    <h3 class="mb-1">15+</h3>
-                    <p class="text-secondary mb-0">Available Courses</p>
+                    <h3 class="mb-1">{{ trans('stat_courses') }}</h3>
+                    <p class="text-secondary mb-0">{{ trans('available_courses') }}</p>
                 </div>
             </div>
         </div>
@@ -187,8 +185,8 @@
                     <i class="fas fa-school fa-2x"></i>
                 </div>
                 <div>
-                    <h3 class="mb-1">8</h3>
-                    <p class="text-secondary mb-0">Training Providers</p>
+                    <h3 class="mb-1">{{ trans('stat_providers') }}</h3>
+                    <p class="text-secondary mb-0">{{ trans('training_providers') }}</p>
                 </div>
             </div>
         </div>
@@ -200,8 +198,8 @@
                     <i class="fas fa-briefcase fa-2x"></i>
                 </div>
                 <div>
-                    <h3 class="mb-1">20+</h3>
-                    <p class="text-secondary mb-0">Job Opportunities</p>
+                    <h3 class="mb-1">{{ trans('stat_jobs') }}</h3>
+                    <p class="text-secondary mb-0">{{ trans('job_opportunities') }}</p>
                 </div>
             </div>
         </div>
@@ -214,20 +212,20 @@
             <div class="card-body">
                 <div class="d-flex align-items-center mb-4">
                     <i class="fas fa-chart-line fa-2x text-primary me-3"></i>
-                    <h4 class="mb-0">Top Industries</h4>
+                    <h4 class="mb-0">{{ trans('top_industries') }}</h4>
                 </div>
                 <div class="list-group">
                     <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>Logistics & Supply Chain</span>
-                        <span class="badge bg-primary">High Demand</span>
+                        <span>{{ trans('logistics_supply_chain') }}</span>
+                        <span class="badge bg-primary">{{ trans('high_demand') }}</span>
                     </div>
                     <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>Construction & Infrastructure</span>
-                        <span class="badge bg-primary">High Demand</span>
+                        <span>{{ trans('construction_infrastructure') }}</span>
+                        <span class="badge bg-primary">{{ trans('high_demand') }}</span>
                     </div>
                     <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span>Hospitality & Tourism</span>
-                        <span class="badge bg-primary">Growing</span>
+                        <span>{{ trans('hospitality_tourism') }}</span>
+                        <span class="badge bg-primary">{{ trans('growing') }}</span>
                     </div>
                 </div>
             </div>
@@ -238,24 +236,24 @@
             <div class="card-body">
                 <div class="d-flex align-items-center mb-4">
                     <i class="fas fa-lightbulb fa-2x text-warning me-3"></i>
-                    <h4 class="mb-0">Why Choose Us?</h4>
+                    <h4 class="mb-0">{{ trans('why_choose_us') }}</h4>
                 </div>
                 <ul class="list-unstyled">
                     <li class="mb-3 d-flex align-items-center">
                         <i class="fas fa-check-circle text-success me-3"></i>
-                        <span>AI-powered course matching based on your profile</span>
+                        <span>{{ trans('ai_powered_matching') }}</span>
                     </li>
                     <li class="mb-3 d-flex align-items-center">
                         <i class="fas fa-check-circle text-success me-3"></i>
-                        <span>Direct connections with certified training providers</span>
+                        <span>{{ trans('direct_connections') }}</span>
                     </li>
                     <li class="mb-3 d-flex align-items-center">
                         <i class="fas fa-check-circle text-success me-3"></i>
-                        <span>Job placement assistance after course completion</span>
+                        <span>{{ trans('job_placement_assistance') }}</span>
                     </li>
                     <li class="d-flex align-items-center">
                         <i class="fas fa-check-circle text-success me-3"></i>
-                        <span>Continuous support throughout your journey</span>
+                        <span>{{ trans('continuous_support') }}</span>
                     </li>
                 </ul>
             </div>

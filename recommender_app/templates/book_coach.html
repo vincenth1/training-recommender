@@ -1,25 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Book a Coaching Session - {{ super() }}{% endblock %}
+{% block title %}{{ trans('book_a_coach_title') }} - {{ super() }}{% endblock %}
 
 {% block content %}
 <div class="alert alert-info mb-4">
-    <h4>Book a Coaching Session</h4>
-    <p>
-        In your coaching session, you and your coach will jointly plan your next steps, outline focus areas, and create
-        documentation for your job center or caseworker. This session is required for further support and must be
-        approved by the job center.
-    </p>
-    <p>
-        Please select a coach and book a meeting at a time and location that suits you. Online meetings are also
-        available.
-    </p>
+    <h4>{{ trans('book_a_coach_title') }}</h4>
+    <p>{{ trans('book_a_coach_intro1') }}</p>
+    <p>{{ trans('book_a_coach_intro2') }}</p>
 </div>
 
 <div class="row g-4">
     {% for coach in coaches %}
     <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-            <img src="{{ coach.photo }}" class="card-img-top" alt="Coach photo of {{ coach.name }}"
+            <img src="{{ coach.photo }}" class="card-img-top" alt="{{ trans('coach_photo_alt') }} {{ coach.name }}"
                 style="object-fit:contain; height:100px; width:100%; background:#f8f9fa; border-bottom:1px solid #eee;">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title mb-1">{{ coach.name }}</h5>
@@ -27,12 +20,22 @@
                     <i class="fas fa-map-marker-alt me-1"></i> {{ coach.city }}
                     <span class="ms-2"><i class="fas fa-language me-1"></i> {{ coach.languages|join(', ') }}</span>
                 </div>
-                <p class="card-text small mb-2">{{ coach.description }}</p>
+                <p class="card-text small mb-2">
+                    {% if coach.id == 1 %}{{ trans('coach_description_anna') }}
+                    {% elif coach.id == 2 %}{{ trans('coach_description_omar') }}
+                    {% elif coach.id == 3 %}{{ trans('coach_description_svitlana') }}
+                    {% elif coach.id == 4 %}{{ trans('coach_description_jonas') }}
+                    {% else %}{{ coach.description }}{% endif %}
+                </p>
                 <div class="mb-2">
-                    <span class="badge bg-primary-light text-primary me-1">{{ coach.meeting_types|join(' / ') }}</span>
+                    <span class="badge bg-primary-light text-primary me-1">
+                        {% for mt in coach.meeting_types %}{% if mt == 'in-person' %}{{ trans('meeting_types_in_person')
+                        }}{% elif mt == 'online' %}{{ trans('meeting_types_online') }}{% else %}{{ mt }}{% endif %}{% if
+                        not loop.last %} / {% endif %}{% endfor %}
+                    </span>
                 </div>
                 <div class="mt-auto">
-                    <div class="mb-2 fw-bold">Available Slots:</div>
+                    <div class="mb-2 fw-bold">{{ trans('available_slots') }}</div>
                     <ul class="list-unstyled mb-3">
                         {% for slot in coach.slots %}
                         <li class="mb-2">
@@ -41,11 +44,12 @@
                                 {% if slot.type == 'in-person' %}
                                 <i class="fas fa-map-marker-alt ms-2"></i> {{ slot.city }}
                                 {% else %}
-                                <i class="fas fa-globe ms-2"></i> Online
+                                <i class="fas fa-globe ms-2"></i> {{ trans('slot_online') }}
                                 {% endif %}
                             </span>
                             <button class="btn btn-sm btn-outline-primary"
-                                onclick="bookSlot('{{ coach.id|escape }}', '{{ slot.datetime|escape }}', '{{ coach.name|escape }}', '{{ coach.photo|escape }}')">Book</button>
+                                onclick="bookSlot('{{ coach.id|escape }}', '{{ slot.datetime|escape }}', '{{ coach.name|escape }}', '{{ coach.photo|escape }}')">{{
+                                trans('book') }}</button>
                         </li>
                         {% endfor %}
                     </ul>
@@ -58,7 +62,7 @@
 
 <div class="text-center mt-5">
     <a href="/" class="btn btn-outline-secondary">
-        <i class="fas fa-home me-2"></i>Back to Dashboard
+        <i class="fas fa-home me-2"></i>{{ trans('back_to_dashboard') }}
     </a>
 </div>
 {% endblock %}
@@ -69,8 +73,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-success text-white">
-                <h5 class="modal-title" id="bookingModalLabel"><i class="fas fa-check-circle me-2"></i>Booking
-                    Confirmed!</h5>
+                <h5 class="modal-title" id="bookingModalLabel"><i class="fas fa-check-circle me-2"></i>{{
+                    trans('booking_confirmed') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
@@ -78,11 +82,10 @@
                     style="width:90px; height:90px; object-fit:cover; border:3px solid #28a745;">
                 <h5 id="modalCoachName"></h5>
                 <div class="mb-2 text-secondary" id="modalSlotTime"></div>
-                <p class="mb-0">You have successfully booked a meeting.<br>Further instructions will be sent to your
-                    email.</p>
+                <p class="mb-0">{{ trans('booking_success_message') }}</p>
             </div>
             <div class="modal-footer justify-content-center">
-                <a href="/" class="btn btn-primary"><i class="fas fa-home me-2"></i>Back to Dashboard</a>
+                <a href="/" class="btn btn-primary"><i class="fas fa-home me-2"></i>{{ trans('back_to_dashboard') }}</a>
             </div>
         </div>
     </div>
@@ -99,7 +102,7 @@
                 if (data.success) {
                     showConfirmation(coachName, slotDatetime, coachPhoto);
                 } else {
-                    alert('Booking failed. Please try again.');
+                    alert('{{ trans('booking_failed') }}');
                 }
             });
     }

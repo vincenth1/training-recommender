@@ -355,13 +355,21 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/">
-                            <i class="fas fa-home me-2"></i>Dashboard
+                            <i class="fas fa-home me-2"></i>{{ trans('dashboard') }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/recommendations">
-                            <i class="fas fa-star me-2"></i>Recommendations
-                        </a>
+                    <li class="nav-item ms-3">
+                        <form method="post" action="/set-language" class="d-flex align-items-center">
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            <div class="btn-group" role="group" aria-label="Language selector">
+                                <button type="submit" name="lang" value="en"
+                                    class="btn btn-outline-secondary btn-sm {% if session.get('lang', 'en') == 'en' %}active{% endif %}">EN</button>
+                                <button type="submit" name="lang" value="de"
+                                    class="btn btn-outline-secondary btn-sm {% if session.get('lang', 'en') == 'de' %}active{% endif %}">DE</button>
+                                <button type="submit" name="lang" value="ua"
+                                    class="btn btn-outline-secondary btn-sm {% if session.get('lang', 'en') == 'ua' %}active{% endif %}">UA</button>
+                            </div>
+                        </form>
                     </li>
                 </ul>
             </div>

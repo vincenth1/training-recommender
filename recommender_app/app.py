@@ -1,15 +1,34 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from db.db_reader import fetch_courses
 from scoring.rule_score_function import compute_final_score
-from forms import UserIntakeForm
+from recommender_app.forms import UserIntakeForm
 import json
 from markupsafe import Markup
 
 app = Flask(__name__)
 app.secret_key = 'dev-secret-key'
+
+# --- Translation Helper ---
+with open(os.path.join(os.path.dirname(__file__), 'site_translations.json'), encoding='utf-8') as f:
+    SITE_TRANSLATIONS = json.load(f)
+
+def trans(key):
+    lang = session.get('lang', 'en')
+    entry = SITE_TRANSLATIONS.get(key, {})
+    return Markup(entry.get(lang, entry.get('en', key)))
+
+@app.context_processor
+def inject_trans():
+    return dict(trans=trans)
+
+@app.route('/set-language', methods=['POST'])
+def set_language():
+    lang = request.form.get('lang', 'en')
+    session['lang'] = lang
+    next_url = request.form.get('next') or url_for('dashboard')
+    return redirect(next_url)
 
 # --- Dummy Data ---
 # This simulates the output of your course_ranker.py
@@ -285,17 +304,15 @@ def book_coach():
         pc = form_data.get('postal_city', '')
         if pc:
             user_city = pc.split()[-1]
-    return render_template('book_coach.html', coaches=COACHES, user_city=user_city)
+    return render_template('book_coach.html', coaches=COACHES, user_city=user_city, translations=SITE_TRANSLATIONS)
 
 @app.route('/user-form', methods=['GET', 'POST'])
 def user_form():
-    with open('recommender_app/form_translations.json', encoding='utf-8') as f:
-        translations = json.load(f)
+    translations = SITE_TRANSLATIONS
     form = UserIntakeForm()
     if form.validate_on_submit():
-        # Fetch submitted data
         user_data = form.data
-        print('USER FORM SUBMISSION:', user_data)  # For debugging
+        print('USER FORM SUBMISSION:', user_data)
         session['user_profile'] = user_data
         return redirect(url_for('book_coach'))
     else:
